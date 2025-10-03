@@ -45,7 +45,7 @@
             background-size: cover;
             background-position: center;
             position: relative;
-            background-image: url('assets/hero.jpeg'); 
+            background-image: url('assets/hero.jpg'); 
         }
         .hero-overlay {
             position: absolute;
@@ -64,18 +64,33 @@
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- Title: Gold text, hovers to white -->
             <a href="index.html" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-white">
-                Sayoko Wada
+                Sayoko
             </a>
-            <div class="space-x-8 hidden md:flex">
-                <!-- Links now point to separate files -->
-                <a href="recordings.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Recordings</a>
-                <a href="biography.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Biography</a>
-                <a href="booking.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Booking</a>
+            <div class="flex items-center space-x-8">
+                <!-- Desktop Nav Links -->
+                <div class="space-x-8 hidden md:flex">
+                    <a href="recordings.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Recordings</a>
+                    <a href="biography.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Biography</a>
+                    <a href="booking.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Booking</a>
+                </div>
+
+                <!-- Desktop Social Icons (NEW) -->
+                <div class="hidden md:flex space-x-4">
+                    <!-- YouTube Icon -->
+                    <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-gray-400 hover:text-accent-gold transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.613-.263-12.001-.263-15.61 0C.734 3.447 0 4.213 0 5.466v13.068c0 1.253.734 2.02 2.99 2.282 3.61.263 12.001.263 15.61 0 2.256-.262 2.99-1.03 2.99-2.282V5.466c0-1.253-.734-2.02-2.99-2.282zM12 17.5c-4.142 0-7.5-3.358-7.5-7.5s3.358-7.5 7.5-7.5 7.5 3.358 7.5 7.5-3.358 7.5-7.5 7.5zm-2.5-4.5l5-3-5-3v6z"/></svg>
+                    </a>
+                    <!-- Instagram Icon -->
+                    <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-gray-400 hover:text-accent-gold transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.013 4.85.07c1.479.067 2.164.301 2.646.495.632.257 1.077.595 1.554 1.072.477.477.815.922 1.072 1.554.194.482.428 1.167.495 2.646.057 1.266.07 1.646.07 4.85s-.013 3.584-.07 4.85c-.067 1.479-.301 2.164-.495 2.646-.257.632-.595 1.077-1.072 1.554-.477.477-.922.815-1.554 1.072-.482.194-1.167.428-2.646.495-1.266.057-1.646.07-4.85.07s-3.584-.013-4.85-.07c-1.479-.067-2.164-.301-2.646-.495-.632-.257-1.077-.595-1.554-1.072-.477-.477-.815-.922-1.072-1.554-.194-.482-.428-1.167-.495-2.646-.057-1.266-.07-1.646-.07-4.85s.013-3.584.07-4.85c.067-1.479.301-2.164.495-2.646.257-.632.595-1.077 1.072-1.554.477-.477.922-.815 1.554-1.072.482-.194 1.167-.428 2.646-.495C8.416 2.176 8.796 2.163 12 2.163zm0 3.84a6 6 0 100 12 6 6 0 000-12zM12 15a3 3 0 110-6 3 3 0 010 6zm5.83-6.5a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button: Light gray icon, hovers to gold -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
-            <!-- Mobile Menu Button: Light gray icon, hovers to gold -->
-            <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
         </nav>
     </header>
 
@@ -89,6 +104,18 @@
                 <a href="recordings.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Recordings</a>
                 <a href="biography.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Biography</a>
                 <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
+                
+                <!-- Mobile Social Icons (NEW) -->
+                <div class="pt-8 flex justify-center space-x-8">
+                    <!-- YouTube Icon (Mobile) -->
+                    <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-white hover:text-accent-gold transition duration-300">
+                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.613-.263-12.001-.263-15.61 0C.734 3.447 0 4.213 0 5.466v13.068c0 1.253.734 2.02 2.99 2.282 3.61.263 12.001.263 15.61 0 2.256-.262 2.99-1.03 2.99-2.282V5.466c0-1.253-.734-2.02-2.99-2.282zM12 17.5c-4.142 0-7.5-3.358-7.5-7.5s3.358-7.5 7.5-7.5 7.5 3.358 7.5 7.5-3.358 7.5-7.5 7.5zm-2.5-4.5l5-3-5-3v6z"/></svg>
+                    </a>
+                    <!-- Instagram Icon (Mobile) -->
+                    <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.013 4.85.07c1.479.067 2.164.301 2.646.495.632.257 1.077.595 1.554 1.072.477.477.815.922 1.072 1.554.194.482.428 1.167.495 2.646.057 1.266.07 1.646.07 4.85s-.013 3.584-.07 4.85c-.067 1.479-.301 2.164-.495 2.646-.257.632-.595 1.077-1.072 1.554-.477.477-.922.815-1.554 1.072-.482.194-1.167.428-2.646.495-1.266.057-1.646.07-4.85.07s-3.584-.013-4.85-.07c-1.479-.067-2.164-.301-2.646-.495-.632-.257-1.077-.595-1.554-1.072-.477-.477-.815-.922-1.072-1.554-.194-.482-.428-1.167-.495-2.646-.057-1.266-.07-1.646-.07-4.85s.013-3.584.07-4.85c.067-1.479.301-2.164.495-2.646.257-.632.595-1.077 1.072-1.554.477-.477.922-.815 1.554-1.072.482-.194 1.167-.428 2.646-.495C8.416 2.176 8.796 2.163 12 2.163zm0 3.84a6 6 0 100 12 6 6 0 000-12zM12 15a3 3 0 110-6 3 3 0 010 6zm5.83-6.5a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
+                    </a>
+                </div>
             </nav>
         </div>
     </div>
@@ -105,7 +132,7 @@
                 <!-- Left Panel: Text on BLACK Background (50% width) -->
                 <div class="w-1/2 bg-black text-white flex flex-col justify-center px-16 lg:px-24">
                     <h1 class="text-6xl lg:text-7xl font-serif font-bold leading-tight tracking-tighter">
-                        Sayoko Wada
+                        Sayoko
                     </h1>
                     <p class="mt-4 text-2xl lg:text-3xl font-sans font-light max-w-3xl">
                         Hello, my name is Sayoko. I'm a classical pianist.
@@ -118,7 +145,7 @@
                 <!-- Right Panel: Image Background (50% width) -->
                 <div 
                     class="w-1/2 bg-cover bg-center" 
-                    style="background-image: url('assets/hero.jpeg');">
+                    style="background-image: url('assets/hero.jpg');">
                     <!-- Image content handled via CSS background-image -->
                 </div>
 
@@ -193,10 +220,10 @@
                     </div>
                     
                     <h2 class="text-4xl font-serif font-bold text-text-dark mb-6">Artist Spotlight</h2>
-                    <div class="section-separator mx-auto bg-gray-300"></div> 
+                    <div class="w-24 h-1 bg-accent-gold mb-8 mx-auto"></div> <!-- Custom separator -->
 
                     <p class="text-xl text-text-dark mb-8 max-w-3xl mx-auto">
-                        Sayoko is a prize-winning classical pianist renowned for [her deep emotional connection to Romantic composers, especially Chopin and Debussy]. Having trained at [Prestigious Conservatory], she now performs globally in major concert halls, bringing a blend of technical brilliance and nuanced interpretation to her audience.
+                        Hello! My name is Sayoko Wada (also known as Sadaeja Oh), a pianist originally from Osaka, Japan. I completed my Bachelor’s degree in Japan, followed by a Master’s degree at the Royal Welsh College of Music in the UK. Four years ago, I moved to Finland to pursue a second Master’s at the Sibelius Academy. I am now based in Finland, working as a pianist and piano teacher, sharing my passion for music through both performance and education.
                     </p>
 
                     <div class="flex flex-col space-y-4 mt-12">
@@ -220,10 +247,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-dark">
             <p class="text-text-dark">&copy; 2024 Sayoko. All Rights Reserved.</p>
             <div class="mt-4 space-x-6">
-                <!-- Social Icons -->
-                <a href="#" class="text-text-dark hover:text-accent-gold transition duration-300">YouTube (Performances)</a>
-                <a href="#" class="text-text-dark hover:text-accent-gold transition duration-300">Instagram</a>
-                <a href="#" class="text-text-dark hover:text-accent-gold transition duration-300">Management</a>
+                <!-- Social Icons in Footer (for SEO/completeness) -->
+                <a href="https://www.youtube.com/@YOURCHANNELNAME" target="_blank" class="text-text-dark hover:text-accent-gold transition duration-300">YouTube</a>
+                <a href="https://www.instagram.com/YOURINSTAGRAMHANDLE" target="_blank" class="text-text-dark hover:text-accent-gold transition duration-300">Instagram</a>
+                <a href="booking.html" class="text-text-dark hover:text-accent-gold transition duration-300">Management</a>
             </div>
             <p class="text-sm mt-4 text-gray-500">Hosted for Free on GitHub Pages</p>
         </div>
