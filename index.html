@@ -13,7 +13,7 @@
                 extend: {
                     colors: {
                         'background-main': '#111111', // Dark gray for dark sections
-                        'text-dark': '#141414', // Very dark gray/near black text (New)
+                        'text-dark': '#141414', // Very dark gray/near black text (Used for text on white background)
                         'text-light': '#ffffff', // White text
                         'accent-gold': '#b89966', // Muted, sophisticated gold accent
                     },
@@ -55,6 +55,11 @@
             left: 0;
             background-color: rgba(0, 0, 0, 0.5); /* Darker overlay for white text readability on mobile */
         }
+
+        /* Enforce smooth scrolling on all scroll events */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body class="bg-black text-white font-sans antialiased">
@@ -64,33 +69,29 @@
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- Title: Gold text, hovers to white -->
             <a href="index.html" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-white">
-                Sayoko
+                Sayoko Wada
             </a>
-            <div class="flex items-center space-x-8">
-                <!-- Desktop Nav Links -->
-                <div class="space-x-8 hidden md:flex">
-                    <a href="recordings.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Recordings</a>
-                    <a href="biography.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Biography</a>
-                    <a href="booking.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Booking</a>
-                </div>
-
-                <!-- Desktop Social Icons (NEW) -->
-                <div class="hidden md:flex space-x-4">
-                    <!-- YouTube Icon -->
-                    <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-gray-400 hover:text-accent-gold transition duration-300">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.613-.263-12.001-.263-15.61 0C.734 3.447 0 4.213 0 5.466v13.068c0 1.253.734 2.02 2.99 2.282 3.61.263 12.001.263 15.61 0 2.256-.262 2.99-1.03 2.99-2.282V5.466c0-1.253-.734-2.02-2.99-2.282zM12 17.5c-4.142 0-7.5-3.358-7.5-7.5s3.358-7.5 7.5-7.5 7.5 3.358 7.5 7.5-3.358 7.5-7.5 7.5zm-2.5-4.5l5-3-5-3v6z"/></svg>
-                    </a>
-                    <!-- Instagram Icon -->
-                    <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-gray-400 hover:text-accent-gold transition duration-300">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.013 4.85.07c1.479.067 2.164.301 2.646.495.632.257 1.077.595 1.554 1.072.477.477.815.922 1.072 1.554.194.482.428 1.167.495 2.646.057 1.266.07 1.646.07 4.85s-.013 3.584-.07 4.85c-.067 1.479-.301 2.164-.495 2.646-.257.632-.595 1.077-1.072 1.554-.477.477-.922.815-1.554 1.072-.482.194-1.167.428-2.646.495-1.266.057-1.646.07-4.85.07s-3.584-.013-4.85-.07c-1.479-.067-2.164-.301-2.646-.495-.632-.257-1.077-.595-1.554-1.072-.477-.477-.815-.922-1.072-1.554-.194-.482-.428-1.167-.495-2.646-.057-1.266-.07-1.646-.07-4.85s.013-3.584.07-4.85c.067-1.479.301-2.164.495-2.646.257-.632.595-1.077 1.072-1.554.477-.477.922-.815 1.554-1.072.482-.194 1.167-.428 2.646-.495C8.416 2.176 8.796 2.163 12 2.163zm0 3.84a6 6 0 100 12 6 6 0 000-12zM12 15a3 3 0 110-6 3 3 0 010 6zm5.83-6.5a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Button: Light gray icon, hovers to gold -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
+            <div class="space-x-8 hidden md:flex">
+                <!-- Links now point to separate files -->
+                <a href="recordings.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Recordings</a>
+                <a href="biography.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Biography</a>
+                <a href="booking.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Booking</a>
             </div>
+            <!-- Social Icons on Desktop -->
+            <div class="space-x-4 hidden md:flex">
+                <!-- YouTube Icon -->
+                <a href="https://www.youtube.com/@YOURCHANNELNAME" target="_blank" aria-label="YouTube Channel" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.613-.263-12.001-.263-15.61 0C.734 3.447 0 4.213 0 5.466v13.068c0 1.253.734 2.02 2.99 2.282 3.61.263 12.001.263 15.61 0 2.256-.262 2.99-1.03 2.99-2.282V5.466c0-1.253-.734-2.02-2.99-2.282zM12 17.5c-4.142 0-7.5-3.358-7.5-7.5s3.358-7.5 7.5-7.5 7.5 3.358 7.5 7.5-3.358 7.5-7.5 7.5zm-2.5-4.5l5-3-5-3v6z"/></svg>
+                </a>
+                <!-- Instagram Icon -->
+                <a href="https://www.instagram.com/YOURINSTAGRAMHANDLE" target="_blank" aria-label="Instagram Profile" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.013 4.85.07c1.479.067 2.164.301 2.646.495.632.257 1.077.595 1.554 1.072.477.477.815.922 1.072 1.554.194.482.428 1.167.495 2.646.057 1.266.07 1.646.07 4.85s-.013 3.584-.07 4.85c-.067 1.479-.301 2.164-.495 2.646-.257.632-.595 1.077-1.072 1.554-.477.477-.922.815-1.554 1.072-.482.194-1.167.428-2.646.495-1.266.057-1.646.07-4.85.07s-3.584-.013-4.85-.07c-1.479-.067-2.164-.301-2.646-.495-.632-.257-1.077-.595-1.554-1.072-.477-.477-.815-.922-1.072-1.554-.194-.482-.428-1.167-.495-2.646-.057-1.266-.07-1.646-.07-4.85s.013-3.584.07-4.85c.067-1.479.301-2.164.495-2.646.257-.632.595-1.077 1.072-1.554.477-.477.922-.815 1.554-1.072.482-.194 1.167-.428 2.646-.495C8.416 2.176 8.796 2.163 12 2.163zm0 3.84a6 6 0 100 12 6 6 0 000-12zM12 15a3 3 0 110-6 3 3 0 010 6zm5.83-6.5a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
+                </a>
+            </div>
+            <!-- Mobile Menu Button: Light gray icon, hovers to gold -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
         </nav>
     </header>
 
@@ -105,14 +106,12 @@
                 <a href="biography.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Biography</a>
                 <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
                 
-                <!-- Mobile Social Icons (NEW) -->
-                <div class="pt-8 flex justify-center space-x-8">
-                    <!-- YouTube Icon (Mobile) -->
-                    <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-white hover:text-accent-gold transition duration-300">
-                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.613-.263-12.001-.263-15.61 0C.734 3.447 0 4.213 0 5.466v13.068c0 1.253.734 2.02 2.99 2.282 3.61.263 12.001.263 15.61 0 2.256-.262 2.99-1.03 2.99-2.282V5.466c0-1.253-.734-2.02-2.99-2.282zM12 17.5c-4.142 0-7.5-3.358-7.5-7.5s3.358-7.5 7.5-7.5 7.5 3.358 7.5 7.5-3.358 7.5-7.5 7.5zm-2.5-4.5l5-3-5-3v6z"/></svg>
+                <!-- Social Icons in Mobile Menu -->
+                <div class="flex justify-center space-x-8 mt-8">
+                    <a href="https://www.youtube.com/@YOURCHANNELNAME" target="_blank" aria-label="YouTube Channel" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.613-.263-12.001-.263-15.61 0C.734 3.447 0 4.213 0 5.466v13.068c0 1.253.734 2.02 2.99 2.282 3.61.263 12.001.263 15.61 0 2.256-.262 2.99-1.03 2.99-2.282V5.466c0-1.253-.734-2.02-2.99-2.282zM12 17.5c-4.142 0-7.5-3.358-7.5-7.5s3.358-7.5 7.5-7.5 7.5 3.358 7.5 7.5-3.358 7.5-7.5 7.5zm-2.5-4.5l5-3-5-3v6z"/></svg>
                     </a>
-                    <!-- Instagram Icon (Mobile) -->
-                    <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-white hover:text-accent-gold transition duration-300">
+                    <a href="https://www.instagram.com/YOURINSTAGRAMHANDLE" target="_blank" aria-label="Instagram Profile" class="text-white hover:text-accent-gold transition duration-300">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.013 4.85.07c1.479.067 2.164.301 2.646.495.632.257 1.077.595 1.554 1.072.477.477.815.922 1.072 1.554.194.482.428 1.167.495 2.646.057 1.266.07 1.646.07 4.85s-.013 3.584-.07 4.85c-.067 1.479-.301 2.164-.495 2.646-.257.632-.595 1.077-1.072 1.554-.477.477-.922.815-1.554 1.072-.482.194-1.167.428-2.646.495-1.266.057-1.646.07-4.85.07s-3.584-.013-4.85-.07c-1.479-.067-2.164-.301-2.646-.495-.632-.257-1.077-.595-1.554-1.072-.477-.477-.815-.922-1.072-1.554-.194-.482-.428-1.167-.495-2.646-.057-1.266-.07-1.646-.07-4.85s.013-3.584.07-4.85c.067-1.479.301-2.164.495-2.646.257-.632.595-1.077 1.072-1.554.477-.477.922-.815 1.554-1.072.482-.194 1.167-.428 2.646-.495C8.416 2.176 8.796 2.163 12 2.163zm0 3.84a6 6 0 100 12 6 6 0 000-12zM12 15a3 3 0 110-6 3 3 0 010 6zm5.83-6.5a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
                     </a>
                 </div>
@@ -127,18 +126,20 @@
         <section id="hero-section" class="border-b border-gray-800">
 
             <!-- 1. DESKTOP SPLIT VIEW (Hidden on mobile) -->
-            <div class="hidden md:flex min-h-screen">
+            <div class="hidden md:flex min-h-screen relative">
                 
                 <!-- Left Panel: Text on BLACK Background (50% width) -->
                 <div class="w-1/2 bg-black text-white flex flex-col justify-center px-16 lg:px-24">
                     <h1 class="text-6xl lg:text-7xl font-serif font-bold leading-tight tracking-tighter">
-                        Sayoko
+                        Sayoko Wada
                     </h1>
                     <p class="mt-4 text-2xl lg:text-3xl font-sans font-light max-w-3xl">
                         Hello, my name is Sayoko. I'm a classical pianist.
                     </p>
-                    <a href="#biography-snippet" class="mt-12 inline-block bg-accent-gold text-black font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
-                        Enter Site
+                    <!-- NEW SCROLL DOWN BUTTON/ICON -->
+                    <a href="#biography-snippet" class="mt-12 text-accent-gold hover:text-white transition duration-300 text-center flex flex-col items-start" id="scroll-down-arrow-desktop">
+                        <span class="text-sm font-sans mb-2 tracking-widest uppercase">Scroll Down</span>
+                        <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                     </a>
                 </div>
 
@@ -152,7 +153,7 @@
             </div>
             
             <!-- 2. MOBILE FULL IMAGE VIEW (Hidden on desktop) -->
-            <div class="md:hidden hero-mobile-bg">
+            <div class="md:hidden hero-mobile-bg relative">
                 <!-- Dark Overlay for Readability on Mobile -->
                 <div class="hero-overlay"></div> 
                 
@@ -163,9 +164,10 @@
                     <p class="mt-4 text-xl sm:text-2xl text-gray-200 font-sans font-light max-w-3xl drop-shadow-lg">
                         Hello, my name is Sayoko. I'm a classical pianist.
                     </p>
-                    <!-- Quick link to the content -->
-                    <a href="#biography-snippet" class="mt-12 inline-block bg-accent-gold text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
-                        Enter Site
+                    <!-- NEW SCROLL DOWN BUTTON/ICON (Mobile) -->
+                    <a href="#biography-snippet" class="mt-12 text-accent-gold hover:text-white transition duration-300 text-center flex flex-col items-start" id="scroll-down-arrow-mobile-cta">
+                        <span class="text-sm font-sans mb-2 tracking-widest uppercase">Scroll Down</span>
+                        <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                     </a>
                 </div>
             </div>
@@ -191,7 +193,7 @@
                     <div class="w-24 h-1 bg-accent-gold mb-8 mx-0"></div> <!-- Custom separator -->
 
                     <p class="text-xl text-text-dark mb-8 max-w-3xl">
-                        Hello! My name is Sayoko Wada (also known as Sadaeja Oh), a pianist originally from Osaka, Japan. I completed my Bachelor’s degree in Japan, followed by a Master’s degree at the Royal Welsh College of Music in the UK. Four years ago, I moved to Finland to pursue a second Master’s at the Sibelius Academy. I am now based in Finland, working as a pianist and piano teacher, sharing my passion for music through both performance and education.
+                        Sayoko is a prize-winning classical pianist renowned for [her deep emotional connection to Romantic composers, especially Chopin and Debussy]. Having trained at [Prestigious Conservatory], she now performs globally in major concert halls, bringing a blend of technical brilliance and nuanced interpretation to her audience.
                     </p>
 
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
@@ -223,7 +225,7 @@
                     <div class="w-24 h-1 bg-accent-gold mb-8 mx-auto"></div> <!-- Custom separator -->
 
                     <p class="text-xl text-text-dark mb-8 max-w-3xl mx-auto">
-                        Hello! My name is Sayoko Wada (also known as Sadaeja Oh), a pianist originally from Osaka, Japan. I completed my Bachelor’s degree in Japan, followed by a Master’s degree at the Royal Welsh College of Music in the UK. Four years ago, I moved to Finland to pursue a second Master’s at the Sibelius Academy. I am now based in Finland, working as a pianist and piano teacher, sharing my passion for music through both performance and education.
+                        Sayoko is a prize-winning classical pianist renowned for [her deep emotional connection to Romantic composers, especially Chopin and Debussy]. Having trained at [Prestigious Conservatory], she now performs globally in major concert halls, bringing a blend of technical brilliance and nuanced interpretation to her audience.
                     </p>
 
                     <div class="flex flex-col space-y-4 mt-12">
@@ -247,16 +249,18 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-dark">
             <p class="text-text-dark">&copy; 2024 Sayoko. All Rights Reserved.</p>
             <div class="mt-4 space-x-6">
-                <!-- Social Icons in Footer (for SEO/completeness) -->
-                <a href="https://www.youtube.com/@wsayoko9341" target="_blank" class="text-text-dark hover:text-accent-gold transition duration-300">YouTube</a>
-                <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" class="text-text-dark hover:text-accent-gold transition duration-300">Instagram</a>
+                <!-- Social Icons -->
+                <a href="https://www.youtube.com/@YOURCHANNELNAME" target="_blank" class="text-text-dark hover:text-accent-gold transition duration-300">YouTube (Performances)</a>
+                <a href="https://www.instagram.com/YOURINSTAGRAMHANDLE" target="_blank" class="text-text-dark hover:text-accent-gold transition duration-300">Instagram</a>
                 <a href="booking.html" class="text-text-dark hover:text-accent-gold transition duration-300">Management</a>
             </div>
+            <p class="text-sm mt-4 text-gray-500">Hosted for Free on GitHub Pages</p>
         </div>
     </footer>
 
     <script>
-        // JavaScript for Mobile Menu Functionality
+        // --- Navigation and Menu Logic ---
+
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const isOpen = menu.classList.contains('translate-x-0');
@@ -277,11 +281,58 @@
             link.addEventListener('click', toggleMobileMenu);
         });
         
-        // Simple form submission handler for demonstration (will not actually send email)
+        // --- Full Page Scroll Snap Logic ---
+
+        const heroSection = document.getElementById('hero-section');
+        const spotlightSection = document.getElementById('biography-snippet');
+        let isScrolling = false; // Flag to prevent rapid firing of scroll events
+
+        if (window.innerWidth >= 768) { // Only enable on desktop/tablet (md breakpoint)
+
+            window.addEventListener('wheel', (event) => {
+                const heroRect = heroSection.getBoundingClientRect();
+
+                // Check if currently within the hero section viewport (or slightly below)
+                const isInHeroView = heroRect.top <= 0 && heroRect.bottom > 100;
+
+                if (isInHeroView && !isScrolling) {
+                    // Scrolling Down: Force scroll to the spotlight section
+                    if (event.deltaY > 0) {
+                        event.preventDefault();
+                        isScrolling = true;
+                        
+                        window.scrollTo({
+                            top: spotlightSection.offsetTop,
+                            behavior: 'smooth'
+                        });
+
+                        // Release scroll flag after animation finishes (~800ms)
+                        setTimeout(() => {
+                            isScrolling = false;
+                        }, 800);
+                    } 
+                    // Scrolling Up: Force scroll to the very top (start of hero)
+                    else if (event.deltaY < 0 && window.scrollY > 0) {
+                        event.preventDefault();
+                        isScrolling = true;
+
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        
+                        setTimeout(() => {
+                            isScrolling = false;
+                        }, 800);
+                    }
+                }
+            }, { passive: false }); // passive: false is necessary to use event.preventDefault()
+
+        }
+
+        // --- Simple Form Submission Handler ---
         document.querySelector('form')?.addEventListener('submit', function(event) {
             event.preventDefault();
-            // In a real deployment, replace this with a service like Formspree or Netlify Forms
-            console.log("Form submitted. Use a backend service to handle this in production.");
             // We are replacing the alert with a custom message box as per the rules
             const messageBox = document.createElement('div');
             messageBox.innerHTML = '<div style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); padding:20px; background:#fff; border:2px solid #b89966; box-shadow:0 10px 30px rgba(0,0,0,0.2); z-index:9999; border-radius:8px; text-align:center;"><p style="color:#2c2c2c; font-size:1.1rem;">Thank you for your inquiry!</p><p style="color:#777; font-size:0.8rem; margin-top:5px;">(Note: This form needs an external service to send emails.)</p><button onclick="this.parentNode.remove()" style="margin-top:15px; background:#b89966; color:#fff; padding:8px 15px; border:none; border-radius:4px; cursor:pointer;">Close</button></div>';
