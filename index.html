@@ -12,8 +12,9 @@
             theme: {
                 extend: {
                     colors: {
-                        'background-main': '#FFFFFF', // Very dark gray/near black for main content sections
-                        'text-light': '#141414', // White text
+                        'background-main': '#111111', // Dark gray for dark sections
+                        'text-dark': '#141414', // Very dark gray/near black text (New)
+                        'text-light': '#ffffff', // White text
                         'accent-gold': '#b89966', // Muted, sophisticated gold accent
                     },
                     fontFamily: {
@@ -34,7 +35,7 @@
         .section-separator {
             width: 150px;
             height: 2px;
-            background-color: #444444; /* Dark gray separator */
+            background-color: #444444; /* Dark gray separator (will be overridden on white sections) */
             margin: 0 auto 2.5rem;
         }
         
@@ -44,7 +45,7 @@
             background-size: cover;
             background-position: center;
             position: relative;
-            background-image: url('assets/hero.jpeg'); 
+            background-image: url('assets/hero.jpg'); 
         }
         .hero-overlay {
             position: absolute;
@@ -95,7 +96,7 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Hero Section - SPLIT VIEW on Desktop, FULL IMAGE on Mobile -->
+        <!-- Hero Section - SPLIT VIEW on Desktop, FULL IMAGE on Mobile (Text Left, Image Right) -->
         <section id="hero-section" class="border-b border-gray-800">
 
             <!-- 1. DESKTOP SPLIT VIEW (Hidden on mobile) -->
@@ -117,7 +118,7 @@
                 <!-- Right Panel: Image Background (50% width) -->
                 <div 
                     class="w-1/2 bg-cover bg-center" 
-                    style="background-image: url('assets/hero.jpeg');">
+                    style="background-image: url('assets/hero.jpg');">
                     <!-- Image content handled via CSS background-image -->
                 </div>
 
@@ -145,41 +146,86 @@
         </section>
 
         <!-- Biography Snippet and CTAs (Landing Page Content) -->
-        <section id="biography-snippet" class="py-16 bg-background-main border-b border-gray-800">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl font-serif font-bold text-accent-gold mb-6">Artist Spotlight</h2>
-                <div class="section-separator"></div>
+        <section id="biography-snippet" class="border-b border-gray-300">
+            
+            <!-- 1. DESKTOP SPLIT VIEW (Image Left, Text Right) - Full Screen Height -->
+            <div class="hidden md:flex min-h-screen">
+                
+                <!-- Left Panel: Image Background (50% width) -->
+                <div 
+                    class="w-1/2 bg-cover bg-center" 
+                    style="background-image: url('assets/portrait.jpg');">
+                    <!-- Image content handled via CSS background-image -->
+                </div>
 
-                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-                    Sayoko is a prize-winning classical pianist renowned for [her deep emotional connection to Romantic composers, especially Chopin and Debussy]. Having trained at [Prestigious Conservatory], she now performs globally in major concert halls, bringing a blend of technical brilliance and nuanced interpretation to her audience.
-                </p>
+                <!-- Right Panel: Text & CTAs on WHITE Background (50% width) -->
+                <div class="w-1/2 bg-white text-text-dark flex flex-col justify-center py-20 px-16 lg:px-24">
+                    <h2 class="text-4xl lg:text-5xl font-serif font-bold text-text-dark mb-4">Artist Spotlight</h2>
+                    <div class="w-24 h-1 bg-accent-gold mb-8 mx-0"></div> <!-- Custom separator -->
 
-                <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8 mt-12">
-                    <!-- CTA 1: Recordings -->
-                    <a href="recordings.html" class="inline-block bg-accent-gold text-black font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
-                        Explore Recordings
-                    </a>
-                    <!-- CTA 2: Booking -->
-                    <a href="booking.html" class="inline-block bg-white text-black font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-gray-200 transition duration-300 uppercase tracking-wider text-sm">
-                        Inquire for Bookings
-                    </a>
+                    <p class="text-xl text-text-dark mb-8 max-w-3xl">
+                        Sayoko is a prize-winning classical pianist renowned for [her deep emotional connection to Romantic composers, especially Chopin and Debussy]. Having trained at [Prestigious Conservatory], she now performs globally in major concert halls, bringing a blend of technical brilliance and nuanced interpretation to her audience.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
+                        <!-- CTA 1: Recordings (Colors inverted for white background) -->
+                        <a href="recordings.html" class="inline-block bg-accent-gold text-black font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
+                            Explore Recordings
+                        </a>
+                        <!-- CTA 2: Booking (Colors inverted for white background) -->
+                        <a href="booking.html" class="inline-block bg-text-dark text-white font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-gray-800 transition duration-300 uppercase tracking-wider text-sm">
+                            Inquire for Bookings
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. MOBILE STACKED VIEW (Hidden on desktop) -->
+            <div class="md:hidden py-16 bg-white text-text-dark">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <!-- Image for Mobile -->
+                    <div class="flex justify-center mb-8">
+                        <img 
+                            src="assets/portrait.jpg" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/300x300/141414/b89966?text=ARTIST+PORTRAIT';"
+                            alt="Artist Profile Photo" 
+                            class="w-full h-80 object-cover border-4 border-accent-gold/50">
+                    </div>
+                    
+                    <h2 class="text-4xl font-serif font-bold text-text-dark mb-6">Artist Spotlight</h2>
+                    <div class="section-separator mx-auto bg-gray-300"></div> 
+
+                    <p class="text-xl text-text-dark mb-8 max-w-3xl mx-auto">
+                        Sayoko is a prize-winning classical pianist renowned for [her deep emotional connection to Romantic composers, especially Chopin and Debussy]. Having trained at [Prestigious Conservatory], she now performs globally in major concert halls, bringing a blend of technical brilliance and nuanced interpretation to her audience.
+                    </p>
+
+                    <div class="flex flex-col space-y-4 mt-12">
+                        <!-- CTA 1: Recordings -->
+                        <a href="recordings.html" class="inline-block bg-accent-gold text-black font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
+                            Explore Recordings
+                        </a>
+                        <!-- CTA 2: Booking -->
+                        <a href="booking.html" class="inline-block bg-text-dark text-white font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-gray-800 transition duration-300 uppercase tracking-wider text-sm">
+                            Inquire for Bookings
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-800 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-            <p>&copy; 2024 Sayoko. All Rights Reserved.</p>
+    <!-- Footer - Now White Background with Dark Text -->
+    <footer class="bg-white border-t border-gray-300 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-dark">
+            <p class="text-text-dark">&copy; 2024 Sayoko. All Rights Reserved.</p>
             <div class="mt-4 space-x-6">
                 <!-- Social Icons -->
-                <a href="#" class="hover:text-accent-gold transition duration-300">YouTube (Performances)</a>
-                <a href="#" class="hover:text-accent-gold transition duration-300">Instagram</a>
-                <a href="#" class="hover:text-accent-gold transition duration-300">Management</a>
+                <a href="#" class="text-text-dark hover:text-accent-gold transition duration-300">YouTube (Performances)</a>
+                <a href="#" class="text-text-dark hover:text-accent-gold transition duration-300">Instagram</a>
+                <a href="#" class="text-text-dark hover:text-accent-gold transition duration-300">Management</a>
             </div>
-            <p class="text-sm mt-4 text-gray-600">Hosted for Free on GitHub Pages</p>
+            <p class="text-sm mt-4 text-gray-500">Hosted for Free on GitHub Pages</p>
         </div>
     </footer>
 
