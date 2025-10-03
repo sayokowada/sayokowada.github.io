@@ -12,7 +12,8 @@
             theme: {
                 extend: {
                     colors: {
-                        'background-main': '#111111', // Very dark gray/near black for main content sections
+                        'background-main': '#111111', // Dark gray for dark sections
+                        'text-dark': '#141414', // Very dark gray/near black text (Used for text on white background)
                         'text-light': '#ffffff', // White text
                         'accent-gold': '#b89966', // Muted, sophisticated gold accent
                     },
@@ -54,6 +55,17 @@
                 <a href="biography.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Biography</a>
                 <a href="booking.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Booking</a>
             </div>
+            <!-- Social Icons on Desktop -->
+            <div class="space-x-4 hidden md:flex">
+                <!-- YouTube Icon -->
+                <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.613-.263-12.001-.263-15.61 0C.734 3.447 0 4.213 0 5.466v13.068c0 1.253.734 2.02 2.99 2.282 3.61.263 12.001.263 15.61 0 2.256-.262 2.99-1.03 2.99-2.282V5.466c0-1.253-.734-2.02-2.99-2.282zM12 17.5c-4.142 0-7.5-3.358-7.5-7.5s3.358-7.5 7.5-7.5 7.5 3.358 7.5 7.5-3.358 7.5-7.5 7.5zm-2.5-4.5l5-3-5-3v6z"/></svg>
+                </a>
+                <!-- Instagram Icon -->
+                <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.013 4.85.07c1.479.067 2.164.301 2.646.495.632.257 1.077.595 1.554 1.072.477.477.815.922 1.072 1.554.194.482.428 1.167.495 2.646.057 1.266.07 1.646.07 4.85s-.013 3.584-.07 4.85c-.067 1.479-.301 2.164-.495 2.646-.257.632-.595 1.077-1.072 1.554-.477.477-.922.815-1.554 1.072-.482.194-1.167.428-2.646.495-1.266.057-1.646.07-4.85.07s-3.584-.013-4.85-.07c-1.479-.067-2.164-.301-2.646-.495-.632-.257-1.077-.595-1.554-1.072-.477-.477-.815-.922-1.072-1.554-.194-.482-.428-1.167-.495-2.646-.057-1.266-.07-1.646-.07-4.85s.013-3.584.07-4.85c.067-1.479.301-2.164.495-2.646.257-.632.595-1.077 1.072-1.554.477-.477.922-.815 1.554-1.072.482-.194 1.167-.428 2.646-.495C8.416 2.176 8.796 2.163 12 2.163zm0 3.84a6 6 0 100 12 6 6 0 000-12zM12 15a3 3 0 110-6 3 3 0 010 6zm5.83-6.5a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
+                </a>
+            </div>
             <!-- Mobile Menu Button: Light gray icon, hovers to gold -->
             <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -71,13 +83,23 @@
                 <a href="recordings.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Recordings</a>
                 <a href="biography.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Biography</a>
                 <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
+                
+                <!-- Social Icons in Mobile Menu -->
+                <div class="flex justify-center space-x-8 mt-8">
+                    <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.613-.263-12.001-.263-15.61 0C.734 3.447 0 4.213 0 5.466v13.068c0 1.253.734 2.02 2.99 2.282 3.61.263 12.001.263 15.61 0 2.256-.262 2.99-1.03 2.99-2.282V5.466c0-1.253-.734-2.02-2.99-2.282zM12 17.5c-4.142 0-7.5-3.358-7.5-7.5s3.358-7.5 7.5-7.5 7.5 3.358 7.5 7.5-3.358 7.5-7.5 7.5zm-2.5-4.5l5-3-5-3v6z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.013 4.85.07c1.479.067 2.164.301 2.646.495.632.257 1.077.595 1.554 1.072.477.477.815.922 1.072 1.554.194.482.428 1.167.495 2.646.057 1.266.07 1.646.07 4.85s-.013 3.584-.07 4.85c-.067 1.479-.301 2.164-.495 2.646-.257.632-.595 1.077-1.072 1.554-.477.477-.922.815-1.554 1.072-.482.194-1.167.428-2.646.495-1.266.057-1.646.07-4.85.07s-3.584-.013-4.85-.07c-1.479-.067-2.164-.301-2.646-.495-.632-.257-1.077-.595-1.554-1.072-.477-.477-.815-.922-1.072-1.554-.194-.482-.428-1.167-.495-2.646-.057-1.266-.07-1.646-.07-4.85s.013-3.584.07-4.85c.067-1.479.301-2.164.495-2.646.257-.632.595-1.077 1.072-1.554.477-.477.922-.815 1.554-1.072.482-.194 1.167-.428 2.646-.495C8.416 2.176 8.796 2.163 12 2.163zm0 3.84a6 6 0 100 12 6 6 0 000-12zM12 15a3 3 0 110-6 3 3 0 010 6zm5.83-6.5a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
+                    </a>
+                </div>
             </nav>
         </div>
     </div>
 
     <div 
         class="w-full h-[50vh] bg-cover bg-center border-b-8 border-accent-gold relative" 
-        style="background-image: url('assets/assets/biography_hero.jpeg'); background-image: url('https://placehold.co/1200x600/181818/b89966?text=BIO+HERO+IMAGE');">
+        style="background-image: url('https://placehold.co/1200x600/181818/b89966?text=SAYOKO+WADA');">
         <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
             <h1 class="text-6xl font-serif font-bold text-white drop-shadow-lg tracking-wider">The biography</h1>
         </div>
@@ -85,7 +107,6 @@
 
     <main>
         <!-- Full Biography Section (Detailed Page Content) -->
-         <!-- Biography Snippet and CTAs (Landing Page Content) -->
         <section id="biography-snippet" class="border-b border-gray-300">
             
             <!-- 1. DESKTOP SPLIT VIEW (Image Left, Text Right) - Full Screen Height -->
@@ -103,50 +124,48 @@
                     <h2 class="text-4xl lg:text-5xl font-serif font-bold text-text-dark mb-4">Biography</h2>
                     <div class="w-24 h-1 bg-accent-gold mb-8 mx-0"></div> <!-- Custom separator -->
 
-                    <!-- This block should be placed inside the main content area of biography.html -->
-
+                    <!-- Biography Content starts here -->
                     <h2 class="text-4xl md:text-5xl font-serif font-bold text-accent-gold mb-6">Sayoko Wada | Classical Pianist</h2>
 
-                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                    <p class="text-xl text-text-dark mb-8 leading-relaxed">
                         Sayoko Wada (also performing under the name Sadaeja Oh) is a rising classical pianist celebrated for her profound, nuanced interpretations and commanding stage presence. Originally from Osaka, Japan, her artistry is now deeply rooted in the vibrant European classical scene, with a home base in Finland. Sayoko maintains a dual career as both a sought-after concert soloist and a dedicated piano educator, sharing her passion for music through performance and pedagogy.
                     </p>
 
-                    <h3 class="text-3xl font-serif font-bold text-white mt-10 mb-4">International Education and Recognition</h3>
+                    <h3 class="text-3xl font-serif font-bold text-text-dark mt-10 mb-4">International Education and Recognition</h3>
 
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-lg text-text-dark mb-6 leading-relaxed">
                         Sayoko’s musical foundation is built upon rigorous international training and consistent academic recognition. She holds two prestigious Master’s degrees, first graduating from the esteemed <strong>Royal Welsh College of Music & Drama</strong> in 2022, followed by a second Master's degree from the internationally renowned <strong>Sibelius Academy</strong> in Helsinki in 2024.
                     </p>
 
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-lg text-text-dark mb-6 leading-relaxed">
                         Her dedication to her craft has been consistently recognized with significant financial support, including a highly coveted <strong class="text-accent-gold">full scholarship</strong> for her studies at the Sibelius Academy. She is also a recognized recipient of both the <strong>Martin Wegelius Foundation</strong> and the <strong>Finnish Scholarship</strong> programs.
                     </p>
 
-                    <h3 class="text-3xl font-serif font-bold text-white mt-10 mb-4">Career Highlights and Awards</h3>
+                    <h3 class="text-3xl font-serif font-bold text-text-dark mt-10 mb-4">Career Highlights and Awards</h3>
 
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-lg text-text-dark mb-6 leading-relaxed">
                         Sayoko’s distinguished career trajectory is marked by high-profile performances and international competition success.
                     </p>
 
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-lg text-text-dark mb-6 leading-relaxed">
                         In a major career highlight, she was selected to perform for <strong class="text-accent-gold">King Charles III</strong> in July 2022, showcasing her artistry to a royal audience. She has also performed on the prestigious stage of the <strong class="text-accent-gold">BBC Proms</strong> as part of a large-scale collaboration between the Sibelius Academy and the Royal College of Music Orchestra, conducted by the celebrated <strong>Sakari Oramo</strong>.
                     </p>
 
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-lg text-text-dark mb-6 leading-relaxed">
                         Her competitive achievements include being a <strong class="text-accent-gold">finalist in the 2025 Tampere Piano Competition</strong>, where she delivered a critically acclaimed performance of the Ravel Concerto in G major alongside the <strong class="text-accent-gold">Tampere Philharmonic Orchestra</strong>.
                     </p>
 
-                    <h4 class="text-2xl font-serif font-semibold text-white mt-6 mb-3">Selected Awards:</h4>
-                    <ul class="list-disc list-inside space-y-2 text-lg text-gray-300 pl-4">
+                    <h4 class="text-2xl font-serif font-semibold text-text-dark mt-6 mb-3">Selected Awards:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-lg text-text-dark pl-4">
                         <li><strong class="text-accent-gold">Eric Hodges Memorial Prize, First Prize (2017):</strong> Selected as the representative pianist for the Royal Welsh College of Music to perform at a prominent London church.</li>
                         <li><strong class="text-accent-gold">Jury Special Prize at the Kyoto International Competition (2019).</strong></li>
                         <li>Final Stage recognition at the 18th International Chopin Piano Competition in ASIA.</li>
                     </ul>
 
-                    <p class="text-lg text-gray-300 mt-6 leading-relaxed">
+                    <p class="text-lg text-text-dark mt-6 leading-relaxed">
                         An active international performer, Sayoko participated in the <strong class="text-accent-gold">Crossing Keyboard tour</strong> in February 2023, which saw her perform across the Baltic States of Lithuania, Latvia, and Estonia, cultivating a wide European following.
                     </p>
                     <!-- End of Bio Text -->
-
                 </div>
             </div>
 
@@ -165,46 +184,45 @@
                     <h2 class="text-4xl font-serif font-bold text-text-dark mb-6">Biography</h2>
                     <div class="w-24 h-1 bg-accent-gold mb-8 mx-auto"></div> <!-- Custom separator -->
 
-                    <!-- This block should be placed inside the main content area of biography.html -->
-
+                    <!-- Biography Content starts here (Mobile) -->
                     <h2 class="text-4xl md:text-5xl font-serif font-bold text-accent-gold mb-6">Sayoko Wada | Classical Pianist</h2>
 
-                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                    <p class="text-xl text-text-dark mb-8 leading-relaxed">
                         Sayoko Wada (also performing under the name Sadaeja Oh) is a rising classical pianist celebrated for her profound, nuanced interpretations and commanding stage presence. Originally from Osaka, Japan, her artistry is now deeply rooted in the vibrant European classical scene, with a home base in Finland. Sayoko maintains a dual career as both a sought-after concert soloist and a dedicated piano educator, sharing her passion for music through performance and pedagogy.
                     </p>
 
-                    <h3 class="text-3xl font-serif font-bold text-white mt-10 mb-4">International Education and Recognition</h3>
+                    <h3 class="text-3xl font-serif font-bold text-text-dark mt-10 mb-4">International Education and Recognition</h3>
 
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-lg text-text-dark mb-6 leading-relaxed">
                         Sayoko’s musical foundation is built upon rigorous international training and consistent academic recognition. She holds two prestigious Master’s degrees, first graduating from the esteemed <strong>Royal Welsh College of Music & Drama</strong> in 2022, followed by a second Master's degree from the internationally renowned <strong>Sibelius Academy</strong> in Helsinki in 2024.
                     </p>
 
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-lg text-text-dark mb-6 leading-relaxed">
                         Her dedication to her craft has been consistently recognized with significant financial support, including a highly coveted <strong class="text-accent-gold">full scholarship</strong> for her studies at the Sibelius Academy. She is also a recognized recipient of both the <strong>Martin Wegelius Foundation</strong> and the <strong>Finnish Scholarship</strong> programs.
                     </p>
 
-                    <h3 class="text-3xl font-serif font-bold text-white mt-10 mb-4">Career Highlights and Awards</h3>
+                    <h3 class="text-3xl font-serif font-bold text-text-dark mt-10 mb-4">Career Highlights and Awards</h3>
 
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-lg text-text-dark mb-6 leading-relaxed">
                         Sayoko’s distinguished career trajectory is marked by high-profile performances and international competition success.
                     </p>
 
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-lg text-text-dark mb-6 leading-relaxed">
                         In a major career highlight, she was selected to perform for <strong class="text-accent-gold">King Charles III</strong> in July 2022, showcasing her artistry to a royal audience. She has also performed on the prestigious stage of the <strong class="text-accent-gold">BBC Proms</strong> as part of a large-scale collaboration between the Sibelius Academy and the Royal College of Music Orchestra, conducted by the celebrated <strong>Sakari Oramo</strong>.
                     </p>
 
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-lg text-text-dark mb-6 leading-relaxed">
                         Her competitive achievements include being a <strong class="text-accent-gold">finalist in the 2025 Tampere Piano Competition</strong>, where she delivered a critically acclaimed performance of the Ravel Concerto in G major alongside the <strong class="text-accent-gold">Tampere Philharmonic Orchestra</strong>.
                     </p>
 
-                    <h4 class="text-2xl font-serif font-semibold text-white mt-6 mb-3">Selected Awards:</h4>
-                    <ul class="list-disc list-inside space-y-2 text-lg text-gray-300 pl-4">
+                    <h4 class="text-2xl font-serif font-semibold text-text-dark mt-6 mb-3">Selected Awards:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-lg text-text-dark pl-4">
                         <li><strong class="text-accent-gold">Eric Hodges Memorial Prize, First Prize (2017):</strong> Selected as the representative pianist for the Royal Welsh College of Music to perform at a prominent London church.</li>
                         <li><strong class="text-accent-gold">Jury Special Prize at the Kyoto International Competition (2019).</strong></li>
                         <li>Final Stage recognition at the 18th International Chopin Piano Competition in ASIA.</li>
                     </ul>
 
-                    <p class="text-lg text-gray-300 mt-6 leading-relaxed">
+                    <p class="text-lg text-text-dark mt-6 leading-relaxed">
                         An active international performer, Sayoko participated in the <strong class="text-accent-gold">Crossing Keyboard tour</strong> in February 2023, which saw her perform across the Baltic States of Lithuania, Latvia, and Estonia, cultivating a wide European following.
                     </p>
                     <!-- End of Bio Text -->
@@ -219,8 +237,8 @@
             <p>&copy; 2024 Sayoko. All Rights Reserved.</p>
             <div class="mt-4 space-x-6">
                 <!-- Social Icons -->
-                <a href="https://www.youtube.com/@wsayoko9341" class="hover:text-accent-gold transition duration-300">YouTube (Performances)</a>
-                <a href="https://www.instagram.com/sayoko.pianist/" class="hover:text-accent-gold transition duration-300">Instagram</a>
+                <a href="https://www.youtube.com/@wsayoko9341" target="_blank" class="hover:text-accent-gold transition duration-300">YouTube (Performances)</a>
+                <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" class="hover:text-accent-gold transition duration-300">Instagram</a>
                 <a href="booking.html" class="hover:text-accent-gold transition duration-300">Management</a>
             </div>
         </div>
