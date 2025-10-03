@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayoko - Booking & Contact</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind with elegant theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background-main': '#111111', // Very dark gray/near black for main content sections
+                        'text-light': '#ffffff', // White text
+                        'accent-gold': '#b89966', // Muted, sophisticated gold accent
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'], // Elegant serif font for titles and elegance
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        /* Custom styles for elegance and focus */
+        .shadow-classic {
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05); /* Lighter shadow on dark background */
+        }
+        .section-separator {
+            width: 150px;
+            height: 2px;
+            background-color: #444444; /* Dark gray separator */
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Responsive styling for the mobile image on the booking page */
+        .booking-mobile-image {
+            height: 40vh; 
+            background-size: cover;
+            background-position: center;
+            background-image: url('assets/portrait.jpeg'); 
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans antialiased">
+
+    <!-- Header / Navigation - PURE BLACK -->
+    <header class="sticky top-0 z-50 bg-black shadow-2xl">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Title: Gold text, hovers to white -->
+            <a href="index.html" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-white">
+                Sayoko
+            </a>
+            <div class="space-x-8 hidden md:flex">
+                <!-- Links now point to separate files -->
+                <a href="recordings.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Recordings</a>
+                <a href="biography.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Biography</a>
+                <a href="booking.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Booking</a>
+            </div>
+            <!-- Mobile Menu Button: Light gray icon, hovers to gold -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Drawer (Hidden by default) -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background-main transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div class="p-8">
+            <button id="close-menu-btn" class="absolute top-4 right-4 text-white hover:text-accent-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <nav class="flex flex-col space-y-8 mt-12 text-center">
+                <a href="recordings.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Recordings</a>
+                <a href="biography.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Biography</a>
+                <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <!-- Booking & Management Section (Contact Page Content) -->
+        <section id="booking" class="bg-background-main min-h-[calc(100vh-80px)]">
+            
+            <!-- 1. DESKTOP SPLIT VIEW (Image Left, Form Right) -->
+            <div class="hidden md:flex min-h-[calc(100vh-80px)]">
+                
+                <!-- Left Panel: Image Background (50% width) -->
+                <div 
+                    class="w-1/2 bg-cover bg-center" 
+                    style="background-image: url('assets/portrait.jpeg');">
+                    <!-- Image content handled via CSS background-image -->
+                </div>
+
+                <!-- Right Panel: Text and Form (50% width) -->
+                <div class="w-1/2 flex flex-col justify-center py-16 px-16 lg:px-24 bg-background-main">
+                    <h2 class="text-4xl font-serif font-bold mb-4 text-white">Booking & Collaboration</h2>
+                    <div class="section-separator mx-0"></div>
+                    
+                    <p class="text-lg text-gray-300 mb-8">
+                        I welcome inquiries for a variety of performance and educational engagements.
+                    </p>
+
+                    <div class="bg-[#222222] p-6 rounded-lg shadow-classic border border-gray-800 mb-8">
+                        <h3 class="text-xl font-serif font-semibold text-accent-gold mb-3">Performance & Educational Services</h3>
+                        <ul class="list-disc list-inside space-y-1 text-gray-300 text-base">
+                            <li>**Concert Recitals:** Full-length solo performances in major halls.</li>
+                            <li>**Orchestral Engagements:** Guest soloist appearances.</li>
+                            <li>**Private Events:** Elegant music for weddings, ceremonies, and corporate galas.</li>
+                            <li>**Masterclasses:** Advanced pedagogy and technique sessions for conservatories and universities.</li>
+                            <li>**Private Piano Lessons:** Highly selective one-on-one virtual instruction.</li>
+                        </ul>
+                    </div>
+                    
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name / Organization</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email for Reply</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject (e.g., Wedding Inquiry, Piano Lesson)</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Detailed Message</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:ring-accent-gold focus:border-accent-gold transition duration-300"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-accent-gold text-black font-bold py-3 px-4 rounded-full hover:bg-[#a3875a] hover:text-white transition duration-300 shadow-xl uppercase tracking-wider text-sm">
+                            Send Inquiry
+                        </button>
+                        <p class="text-xs text-center text-gray-500">Note: This is a static HTML form. Use a service like Formspree or Netlify Forms to receive the emails.</p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 2. MOBILE STACKED VIEW (Hidden on desktop) -->
+            <div class="md:hidden">
+                <div class="booking-mobile-image"></div>
+                <div class="py-16 px-4 sm:px-6 lg:px-8 max-w-xl mx-auto">
+                    <h2 class="text-4xl font-serif font-bold text-center mb-4 text-white">Booking & Collaboration</h2>
+                    <div class="section-separator"></div>
+                    <p class="text-center text-lg text-gray-300 mb-8">
+                        I welcome inquiries for a variety of performance and educational engagements.
+                    </p>
+
+                    <div class="bg-[#222222] p-8 rounded-lg shadow-classic border border-gray-800 mb-10">
+                        <h3 class="text-2xl font-serif font-semibold text-accent-gold mb-4">Performance & Educational Services</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-300 text-lg">
+                            <li>**Concert Recitals:** Full-length solo performances in major halls.</li>
+                            <li>**Orchestral Engagements:** Guest soloist appearances.</li>
+                            <li>**Private Events:** Elegant music for weddings, ceremonies, and corporate galas.</li>
+                            <li>**Masterclasses:** Advanced pedagogy and technique sessions for conservatories and universities.</li>
+                            <li>**Private Piano Lessons:** Highly selective one-on-one virtual instruction.</li>
+                        </ul>
+                    </div>
+
+                    <form class="space-y-6 bg-[#222222] p-8 rounded-lg shadow-classic border border-gray-800">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name / Organization</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email for Reply</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject (e.g., Wedding Inquiry, Piano Lesson)</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Detailed Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:ring-accent-gold focus:border-accent-gold transition duration-300"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-accent-gold text-black font-bold py-3 px-4 rounded-full hover:bg-[#a3875a] hover:text-white transition duration-300 shadow-xl uppercase tracking-wider text-sm">
+                            Send Inquiry
+                        </button>
+                        <p class="text-xs text-center text-gray-500">Note: This is a static HTML form. Use a service like Formspree or Netlify Forms to receive the emails.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p>&copy; 2024 Sayoko. All Rights Reserved.</p>
+            <div class="mt-4 space-x-6">
+                <!-- Social Icons -->
+                <a href="#" class="hover:text-accent-gold transition duration-300">YouTube (Performances)</a>
+                <a href="#" class="hover:text-accent-gold transition duration-300">Instagram</a>
+                <a href="#" class="hover:text-accent-gold transition duration-300">Management</a>
+            </div>
+            <p class="text-sm mt-4 text-gray-600">Hosted for Free on GitHub Pages</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Mobile Menu Functionality
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const isOpen = menu.classList.contains('translate-x-0');
+            if (isOpen) {
+                menu.classList.remove('translate-x-0');
+                menu.classList.add('-translate-x-full');
+            } else {
+                menu.classList.add('translate-x-0');
+                menu.classList.remove('-translate-x-full');
+            }
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+        document.getElementById('close-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // Add event listeners to mobile menu links to close the menu on click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+        
+        // Simple form submission handler for demonstration (will not actually send email)
+        document.querySelector('form')?.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // In a real deployment, replace this with a service like Formspree or Netlify Forms
+            console.log("Form submitted. Use a backend service to handle this in production.");
+            // We are replacing the alert with a custom message box as per the rules
+            const messageBox = document.createElement('div');
+            messageBox.innerHTML = '<div style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); padding:20px; background:#fff; border:2px solid #b89966; box-shadow:0 10px 30px rgba(0,0,0,0.2); z-index:9999; border-radius:8px; text-align:center;"><p style="color:#2c2c2c; font-size:1.1rem;">Thank you for your inquiry!</p><p style="color:#777; font-size:0.8rem; margin-top:5px;">(Note: This form needs an external service to send emails.)</p><button onclick="this.parentNode.remove()" style="margin-top:15px; background:#b89966; color:#fff; padding:8px 15px; border:none; border-radius:4px; cursor:pointer;">Close</button></div>';
+            document.body.appendChild(messageBox);
+        });
+    </script>
+</body>
+</html>

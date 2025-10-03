@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayoko - Video Recordings</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind with elegant theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background-main': '#111111', // Very dark gray/near black for main content sections
+                        'text-light': '#ffffff', // White text
+                        'accent-gold': '#b89966', // Muted, sophisticated gold accent
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'], // Elegant serif font for titles and elegance
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        /* Custom styles for elegance and focus */
+        .shadow-classic {
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05); /* Lighter shadow on dark background */
+        }
+        .section-separator {
+            width: 150px;
+            height: 2px;
+            background-color: #444444; /* Dark gray separator */
+            margin: 0 auto 2.5rem;
+        }
+        /* Ensure embedded videos are responsive */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        .video-container iframe, .video-container object, .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans antialiased">
+
+    <!-- Header / Navigation - PURE BLACK -->
+    <header class="sticky top-0 z-50 bg-black shadow-2xl">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Title: Gold text, hovers to white -->
+            <a href="index.html" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-white">
+                Sayoko
+            </a>
+            <div class="space-x-8 hidden md:flex">
+                <!-- Links now point to separate files -->
+                <a href="recordings.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Recordings</a>
+                <a href="biography.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Biography</a>
+                <a href="booking.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Booking</a>
+            </div>
+            <!-- Mobile Menu Button: Light gray icon, hovers to gold -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Drawer (Hidden by default) -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background-main transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div class="p-8">
+            <button id="close-menu-btn" class="absolute top-4 right-4 text-white hover:text-accent-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <nav class="flex flex-col space-y-8 mt-12 text-center">
+                <a href="recordings.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Recordings</a>
+                <a href="biography.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Biography</a>
+                <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <!-- NEW: Recordings Hero Image (Full Width, Half Height) -->
+        <div 
+            class="w-full h-[50vh] bg-cover bg-center border-b-8 border-accent-gold relative" 
+            style="background-image: url('assets/recordings_hero.jpeg'); background-image: url('https://placehold.co/1200x600/181818/b89966?text=RECORDING+HERO+IMAGE');">
+            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                <h1 class="text-6xl font-serif font-bold text-white drop-shadow-lg tracking-wider">The Repertoire</h1>
+            </div>
+        </div>
+
+        <!-- Recordings Content Section (Video Page Content) -->
+        <section id="recordings" class="py-16 md:py-24 bg-black">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-4 text-white">Video Recordings</h2>
+                <div class="section-separator"></div>
+                <p class="text-center text-lg text-gray-400 mb-12">
+                    A selection of live performance recordings and studio sessions. Subscribe to my official YouTube channel for the latest uploads.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-10">
+                    <!-- Video Embed 1: Chopin -->
+                    <div class="bg-background-main p-6 rounded-lg shadow-classic border border-gray-800">
+                        <h3 class="text-2xl font-serif font-semibold text-accent-gold mb-3">Chopin: Ballade No. 1 in G minor</h3>
+                        <div class="video-container">
+                            <!-- REPLACE YOUTUBE_VIDEO_ID_1 with your actual YouTube video ID -->
+                            <iframe 
+                                src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID_1" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="mt-4 text-gray-300">Live performance from the **[Concert Hall Name]**, capturing the dramatic fire and melancholic beauty of Chopin's first Ballade.</p>
+                    </div>
+
+                    <!-- Video Embed 2: Debussy -->
+                    <div class="bg-background-main p-6 rounded-lg shadow-classic border border-gray-800">
+                        <h3 class="text-2xl font-serif font-semibold text-accent-gold mb-3">Debussy: Préludes (Book I, Excerpt)</h3>
+                        <div class="video-container">
+                            <!-- REPLACE YOUTUBE_VIDEO_ID_2 with your actual YouTube video ID -->
+                            <iframe 
+                                src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID_2" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="mt-4 text-gray-300">Exploring the soundscapes of French impressionism, a demonstration and performance of Prélude, **"Voiles"**.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="booking.html" class="bg-gray-800 hover:bg-accent-gold text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-md uppercase text-sm">
+                        Continue to Booking
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p>&copy; 2024 Sayoko. All Rights Reserved.</p>
+            <div class="mt-4 space-x-6">
+                <!-- Social Icons -->
+                <a href="#" class="hover:text-accent-gold transition duration-300">YouTube (Performances)</a>
+                <a href="#" class="hover:text-accent-gold transition duration-300">Instagram</a>
+                <a href="#" class="hover:text-accent-gold transition duration-300">Management</a>
+            </div>
+            <p class="text-sm mt-4 text-gray-600">Hosted for Free on GitHub Pages</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Mobile Menu Functionality
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const isOpen = menu.classList.contains('translate-x-0');
+            if (isOpen) {
+                menu.classList.remove('translate-x-0');
+                menu.classList.add('-translate-x-full');
+            } else {
+                menu.classList.add('translate-x-0');
+                menu.classList.remove('-translate-x-full');
+            }
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+        document.getElementById('close-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // Add event listeners to mobile menu links to close the menu on click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+    </script>
+</body>
+</html>
