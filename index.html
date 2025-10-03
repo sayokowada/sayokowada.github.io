@@ -13,7 +13,7 @@
                 extend: {
                     colors: {
                         'background-light': '#f7f7f7', // Creamy white background
-                        'text-dark': '#2c2c2c', // Deep charcoal text
+                        'text-dark': '#2c2c2c', // Deep charcoal text (Used for black panel on hero)
                         'accent-gold': '#b89966', // Muted, sophisticated gold accent
                     },
                     fontFamily: {
@@ -37,13 +37,16 @@
             background-color: #e0e0e0;
             margin: 0 auto 2.5rem;
         }
-        /* NEW: Full screen hero style with background image */
-        .hero-full-screen {
-            height: 85vh; /* Large height for visual impact */
+        
+        /* MOBILE VIEW ONLY: Full screen hero style with background image */
+        .hero-mobile-bg {
+            /* Full height on mobile */
+            height: 85vh; 
             background-size: cover;
             background-position: center;
             position: relative;
-            background-image: url('/assets/IMG_3233.jpeg');
+            /* Using relative path for the Hero Image */
+            background-image: url('assets/hero.jpg'); 
         }
         .hero-overlay {
             position: absolute;
@@ -51,7 +54,7 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for white text readability */
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for white text readability on mobile */
         }
     </style>
 </head>
@@ -60,7 +63,7 @@
     <!-- Header / Navigation -->
     <header class="sticky top-0 z-50 bg-background-light/95 backdrop-blur-sm shadow-classic border-b border-gray-200">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#home" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-text-dark">
+            <a href="#hero-section" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-text-dark">
                 Sayoko
             </a>
             <div class="space-x-8 hidden md:flex">
@@ -92,26 +95,56 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Hero Section - Simple Visual Landing Page -->
-        <section id="home" class="hero-full-screen border-b border-gray-300">
-            <!-- Dark Overlay for Readability -->
-            <div class="hero-overlay"></div> 
-            
-            <div class="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto items-start text-left px-8">
-                <h1 class="text-5xl sm:text-6xl md:text-7xl font-serif font-bold leading-tight text-white tracking-tighter drop-shadow-2xl">
-                    Sayoko
-                </h1>
-                <p class="mt-4 text-xl md:text-3xl text-gray-200 font-sans font-light max-w-3xl drop-shadow-lg">
-                    Hello, my name is Sayoko.
-                </p>
-                <p class="mt-4 text-xl md:text-3xl text-gray-200 font-sans font-light max-w-3xl drop-shadow-lg">
-                    I'm a classical pianist.
-                </p>
-                <!-- Quick link to the content -->
-                <a href="#repertoire" class="mt-12 inline-block bg-accent-gold text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
-                    Enter Site
-                </a>
+        <!-- Hero Section - Contains both Mobile (full image) and Desktop (split) layouts -->
+        <section id="hero-section" class="border-b border-gray-300">
+
+            <!-- 1. DESKTOP SPLIT VIEW (Hidden on mobile) -->
+            <div class="hidden md:flex min-h-screen">
+                
+                <!-- Left Panel: Text on Black Background (50% width) -->
+                <div class="w-1/2 bg-text-dark text-white flex flex-col justify-center px-16 lg:px-24">
+                    <h1 class="text-6xl lg:text-7xl font-serif font-bold leading-tight tracking-tighter">
+                        Sayoko
+                    </h1>
+                    <p class="mt-4 text-2xl lg:text-3xl font-sans font-light max-w-3xl">
+                        Hello, my name is Sayoko. I'm a classical pianist.
+                    </p>
+                    <a href="#repertoire" class="mt-12 inline-block bg-accent-gold text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
+                        Enter Site
+                    </a>
+                </div>
+
+                <!-- Right Panel: Image Background (50% width) -->
+                <div 
+                    class="w-1/2 bg-cover bg-center" 
+                    style="background-image: url('assets/hero.jpg');">
+                    <!-- Image content handled via CSS background-image -->
+                </div>
+
             </div>
+            
+            <!-- 2. MOBILE FULL IMAGE VIEW (Hidden on desktop) -->
+            <div class="md:hidden hero-mobile-bg">
+                <!-- Dark Overlay for Readability on Mobile -->
+                <div class="hero-overlay"></div> 
+                
+                <div class="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto items-start text-left px-8">
+                    <h1 class="text-5xl sm:text-6xl font-serif font-bold leading-tight text-white tracking-tighter drop-shadow-2xl">
+                        Sayoko
+                    </h1>
+                    <p class="mt-4 text-xl sm:text-2xl text-gray-200 font-sans font-light max-w-3xl drop-shadow-lg">
+                        Hello, my name is Sayoko.
+                    </p>
+                    <p class="mt-4 text-xl sm:text-2xl text-gray-200 font-sans font-light max-w-3xl drop-shadow-lg">
+                        I'm a classical pianist.
+                    </p>
+                    <!-- Quick link to the content -->
+                    <a href="#repertoire" class="mt-12 inline-block bg-accent-gold text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
+                        Enter Site
+                    </a>
+                </div>
+            </div>
+
         </section>
 
         <!-- Repertoire & Performances Section -->
@@ -174,13 +207,13 @@
                 <div class="section-separator"></div>
 
                 <div class="lg:flex lg:items-center lg:space-x-12">
-                    <!-- Profile Image -->
+                    <!-- Profile Image - Circular look with rounded-full class -->
                     <div class="lg:w-1/3 mb-10 lg:mb-0 flex justify-center">
                         <img 
-                            src="assets/IMG_7414.jpeg" 
+                            src="assets/portrait.jpg" 
                             onerror="this.onerror=null; this.src='https://placehold.co/400x400/b89966/ffffff?text=ARTIST+PORTRAIT';"
                             alt="Artist Profile Photo" 
-                            class="rounded-lg w-64 h-64 object-cover shadow-2xl border-4 border-text-dark/50">
+                            class="rounded-full w-64 h-64 object-cover shadow-2xl border-4 border-text-dark/50">
                     </div>
                     <!-- Text Content -->
                     <div class="lg:w-2/3">
