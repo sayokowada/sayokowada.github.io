@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classical Pianist - Sayoko</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind with elegant theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background-light': '#f7f7f7', // Creamy white background
+                        'text-dark': '#2c2c2c', // Deep charcoal text
+                        'accent-gold': '#b89966', // Muted, sophisticated gold accent
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'], // Elegant serif font for titles and elegance
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        /* Custom styles for elegance and focus */
+        .shadow-classic {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        .section-separator {
+            width: 150px;
+            height: 2px;
+            background-color: #e0e0e0;
+            margin: 0 auto 2.5rem;
+        }
+        /* NEW: Full screen hero style with background image */
+        .hero-full-screen {
+            height: 85vh; /* Large height for visual impact */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            /* Placeholder for your professional photo (replace this URL) */
+            background-image: url('https://placehold.co/1920x1080/2c2c2c/b89966?text=ELEGANT+PIANIST+PORTRAIT');
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for white text readability */
+        }
+    </style>
+</head>
+<body class="bg-background-light text-text-dark font-sans antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-background-light/95 backdrop-blur-sm shadow-classic border-b border-gray-200">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-text-dark">
+                Sayoko
+            </a>
+            <div class="space-x-8 hidden md:flex">
+                <a href="#repertoire" class="text-lg text-text-dark hover:text-accent-gold transition duration-300">Repertoire</a>
+                <a href="#biography" class="text-lg text-text-dark hover:text-accent-gold transition duration-300">Biography</a>
+                <a href="#booking" class="text-lg text-text-dark hover:text-accent-gold transition duration-300">Booking</a>
+            </div>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-btn" class="md:hidden text-text-dark hover:text-accent-gold focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Drawer (Hidden by default) -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background-light transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div class="p-8">
+            <button id="close-menu-btn" class="absolute top-4 right-4 text-text-dark hover:text-accent-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <nav class="flex flex-col space-y-8 mt-12 text-center">
+                <a href="#repertoire" class="text-3xl text-text-dark hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Repertoire</a>
+                <a href="#biography" class="text-3xl text-text-dark hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Biography</a>
+                <a href="#booking" class="text-3xl text-text-dark hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section - Simple Visual Landing Page -->
+        <section id="home" class="hero-full-screen border-b border-gray-300">
+            <!-- Dark Overlay for Readability -->
+            <div class="hero-overlay"></div> 
+            
+            <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-4">
+                <h1 class="text-7xl sm:text-8xl md:text-9xl font-serif font-bold leading-tight text-white tracking-tighter drop-shadow-2xl">
+                    Sayoko
+                </h1>
+                <p class="mt-4 text-2xl md:text-4xl text-gray-200 font-sans font-light max-w-3xl drop-shadow-lg">
+                    Hello, my name is Sayoko. I'm a classical pianist.
+                </p>
+                <!-- Quick link to the content -->
+                <a href="#repertoire" class="mt-12 inline-block bg-accent-gold text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
+                    Enter Site
+                </a>
+            </div>
+        </section>
+
+        <!-- Repertoire & Performances Section -->
+        <section id="repertoire" class="py-16 md:py-24">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-4 text-text-dark">Featured Repertoire</h2>
+                <div class="section-separator"></div>
+                
+                <div class="space-y-12">
+                    <!-- Performance Item 1 -->
+                    <div class="flex flex-col md:flex-row items-start md:space-x-8 p-6 bg-white rounded-lg shadow-classic border border-gray-100">
+                        <div class="md:w-1/3 mb-4 md:mb-0">
+                            <h3 class="text-2xl font-serif font-semibold text-accent-gold">Chopin: Nocturnes</h3>
+                            <p class="text-sm text-gray-500">Recorded Live at Carnegie Hall, 2024</p>
+                        </div>
+                        <div class="md:w-2/3">
+                            <p class="text-gray-700 mb-4">A recording of the complete cycle of Chopin's Nocturnes, focusing on lyrical expression and dramatic depth. Available on all major streaming platforms.</p>
+                            <!-- Placeholder for embedded player or link -->
+                            <a href="#" class="font-bold text-accent-gold hover:text-text-dark transition duration-300">Listen on Spotify &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Performance Item 2 -->
+                    <div class="flex flex-col md:flex-row items-start md:space-x-8 p-6 bg-white rounded-lg shadow-classic border border-gray-100">
+                        <div class="md:w-1/3 mb-4 md:mb-0">
+                            <h3 class="text-2xl font-serif font-semibold text-accent-gold">Debussy: Clair de Lune</h3>
+                            <p class="text-sm text-gray-500">Upcoming Performance: London Symphony Hall, Nov 15</p>
+                        </div>
+                        <div class="md:w-2/3">
+                            <p class="text-gray-700 mb-4">Mastering the subtle colors and fluid textures of French Impressionism. This concert will feature works by Ravel and Fauré, alongside Debussy.</p>
+                            <a href="#" class="font-bold text-accent-gold hover:text-text-dark transition duration-300">Get Tickets &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Performance Item 3 -->
+                    <div class="flex flex-col md:flex-row items-start md:space-x-8 p-6 bg-white rounded-lg shadow-classic border border-gray-100">
+                        <div class="md:w-1/3 mb-4 md:mb-0">
+                            <h3 class="text-2xl font-serif font-semibold text-accent-gold">Beethoven: Sonata Op. 57</h3>
+                            <p class="text-sm text-gray-500">Educational Masterclass Series, Online</p>
+                        </div>
+                        <div class="md:w-2/3">
+                            <p class="text-gray-700 mb-4">A deep dive into the 'Appassionata' Sonata, focusing on structural analysis and technical demands. Enrollment is now open for students.</p>
+                            <a href="#" class="font-bold text-accent-gold hover:text-text-dark transition duration-300">View Course Details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <button class="bg-gray-300 hover:bg-accent-gold/80 text-text-dark hover:text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-md uppercase text-sm">
+                        Full Performance History
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Biography Section -->
+        <section id="biography" class="bg-gray-100 py-16 md:py-24 border-t border-b border-gray-300">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-4 text-text-dark">Biography</h2>
+                <div class="section-separator"></div>
+
+                <div class="lg:flex lg:items-center lg:space-x-12">
+                    <!-- Profile Image -->
+                    <div class="lg:w-1/3 mb-10 lg:mb-0 flex justify-center">
+                        <img src="https://placehold.co/400x400/b89966/ffffff?text=ARTIST+PORTRAIT" alt="Artist Profile Photo" class="rounded-lg w-64 h-64 object-cover shadow-2xl border-4 border-text-dark/50">
+                    </div>
+                    <!-- Text Content -->
+                    <div class="lg:w-2/3">
+                        <p class="text-lg text-gray-700 mb-4">
+                            Sayoko is recognized globally for [mention a key skill, e.g., "her profound interpretations of Romantic era repertoire" or "his commanding stage presence"]. Educated at [Prestigious School], they have claimed top prizes at the [Major Competition 1] and [Major Competition 2].
+                        </p>
+                        <p class="text-lg text-gray-700 mb-4">
+                            Recent seasons have included debut performances with the [Orchestra Name] and recitals in [City 1], [City 2], and [City 3]. Beyond the stage, Sayoko is committed to bringing classical music to new audiences through educational outreach and virtual masterclasses.
+                        </p>
+                        <p class="text-lg text-gray-700">
+                            The artist currently resides in [Current City] and is working on a new recording project dedicated to the works of [Specific Composer].
+                        </p>
+                        <a href="#" class="mt-6 inline-block text-accent-gold hover:text-text-dark transition duration-300 font-semibold text-lg">
+                            Read Full Resume (PDF) &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking & Management Section -->
+        <section id="booking" class="py-16 md:py-24">
+            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-4 text-text-dark">Booking & Management</h2>
+                <div class="section-separator"></div>
+                <p class="text-center text-lg text-gray-700 mb-8">
+                    For concert inquiries, masterclass proposals, or press requests, please contact my management team using the form below.
+                </p>
+                
+                <form class="space-y-6 bg-white p-8 rounded-lg shadow-classic border border-gray-200">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-text-dark mb-2">Your Name / Organization</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-text-dark placeholder-gray-500 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-text-dark mb-2">Email for Reply</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-text-dark placeholder-gray-500 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-text-dark mb-2">Subject (e.g., Concert Booking, Media Inquiry)</label>
+                        <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-text-dark placeholder-gray-500 focus:ring-accent-gold focus:border-accent-gold transition duration-300">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-text-dark mb-2">Detailed Message</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-text-dark placeholder-gray-500 focus:ring-accent-gold focus:border-accent-gold transition duration-300"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-text-dark text-white font-bold py-3 px-4 rounded-full hover:bg-gray-700 transition duration-300 shadow-xl uppercase tracking-wider text-sm">
+                        Send Inquiry
+                    </button>
+                    <p class="text-xs text-center text-gray-500">Note: This is a static HTML form. Use a service like Formspree or Netlify Forms to receive the emails.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-text-dark border-t border-gray-700 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p>&copy; 2024 Sayoko. All Rights Reserved.</p>
+            <div class="mt-4 space-x-6">
+                <!-- Social Icons -->
+                <a href="#" class="hover:text-accent-gold transition duration-300">YouTube (Performances)</a>
+                <a href="#" class="hover:text-accent-gold transition duration-300">Instagram</a>
+                <a href="#" class="hover:text-accent-gold transition duration-300">Management</a>
+            </div>
+            <p class="text-sm mt-4 text-gray-500">Hosted for Free on GitHub Pages</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Mobile Menu Functionality
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const isOpen = menu.classList.contains('translate-x-0');
+            if (isOpen) {
+                menu.classList.remove('translate-x-0');
+                menu.classList.add('-translate-x-full');
+            } else {
+                menu.classList.add('translate-x-0');
+                menu.classList.remove('-translate-x-full');
+            }
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+        document.getElementById('close-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // Add event listeners to mobile menu links to close the menu on click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+        
+        // Simple form submission handler for demonstration (will not actually send email)
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // In a real deployment, replace this with a service like Formspree or Netlify Forms
+            console.log("Form submitted. Use a backend service to handle this in production.");
+            // We are replacing the alert with a custom message box as per the rules
+            const messageBox = document.createElement('div');
+            messageBox.innerHTML = '<div style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); padding:20px; background:#fff; border:2px solid #b89966; box-shadow:0 10px 30px rgba(0,0,0,0.2); z-index:9999; border-radius:8px; text-align:center;"><p style="color:#2c2c2c; font-size:1.1rem;">Thank you for your inquiry!</p><p style="color:#777; font-size:0.8rem; margin-top:5px;">(Note: This form needs an external service to send emails.)</p><button onclick="this.parentNode.remove()" style="margin-top:15px; background:#b89966; color:#fff; padding:8px 15px; border:none; border-radius:4px; cursor:pointer;">Close</button></div>';
+            document.body.appendChild(messageBox);
+        });
+    </script>
+</body>
+</html>
