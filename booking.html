@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayoko - Booking & Contact</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind with elegant theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Inverted for light theme text/background
+                        'background-main': '#111111', // Dark gray (used for dark header/menu)
+                        'text-dark': '#141414', // Very dark gray/near black text (New primary text color)
+                        'text-light': '#ffffff', // White text
+                        'accent-gold': '#b89966', // Muted, sophisticated gold accent
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'], // Elegant serif font for titles and elegance
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        /* Custom styles for elegance and focus */
+        .shadow-classic {
+            /* Changed shadow for white background */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+        }
+        .section-separator {
+            width: 150px;
+            height: 2px;
+            background-color: #444444; /* Dark gray separator */
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Responsive styling for the mobile image on the booking page */
+        .booking-mobile-image {
+            height: 40vh; 
+            background-size: cover;
+            background-position: center;
+            background-image: url('assets/contact.jpeg'); 
+        }
+    </style>
+</head>
+<body class="bg-white text-text-dark font-sans antialiased">
+    <!-- The BODY background is now WHITE and default text is now DARK ('text-text-dark') -->
+
+    <!-- Header / Navigation - PURE BLACK (Retained for branding) -->
+    <header class="sticky top-0 z-50 bg-black shadow-2xl">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Title: Gold text, hovers to white -->
+            <a href="index.html" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-white">
+                Sayoko Wada
+            </a>
+            <div class="space-x-8 hidden md:flex">
+                <!-- Links now point to separate files -->
+                <a href="index.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Home</a>
+                <a href="recordings.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Recordings</a>
+                <a href="biography.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Biography</a>
+                <a href="booking.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Booking</a>
+            </div>
+            <!-- Social Icons on Desktop -->
+            <div class="space-x-4 hidden md:flex">
+                <!-- YouTube Icon -->
+                <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+                    </svg>
+                </a>
+                <!-- Instagram Icon -->
+                <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
+                    </svg>
+                </a>
+            </div>
+            <!-- Mobile Menu Button: Light gray icon, hovers to gold -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Drawer (Hidden by default) -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background-main transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div class="p-8">
+            <button id="close-menu-btn" class="absolute top-4 right-4 text-white hover:text-accent-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <nav class="flex flex-col space-y-8 mt-12 text-center">
+                <a href="recordings.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Recordings</a>
+                <a href="biography.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Biography</a>
+                <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+        <!-- Booking & Management Section (Contact Page Content) -->
+        <section id="booking" class="bg-white min-h-[calc(100vh-80px)]">
+            
+            <!-- 1. DESKTOP SPLIT VIEW (Image Left, Contact Right) -->
+            <div class="hidden md:flex min-h-[calc(100vh-80px)]">
+                
+                <!-- Left Panel: Image Background (50% width) -->
+                <div 
+                    class="w-1/2 bg-cover bg-center" 
+                    style="background-image: url('assets/contact.jpeg');">
+                </div>
+
+                <!-- Right Panel: Text, Button, and Icons (50% width) -->
+                <div class="w-1/2 flex flex-col justify-center py-16 px-16 lg:px-24 bg-white text-text-dark">
+                    <h2 class="text-4xl font-serif font-bold mb-4 text-text-dark">Booking & Collaboration</h2>
+                    <div class="w-24 h-1 bg-accent-gold mb-8 mx-0"></div> <!-- Custom separator -->
+                    
+                    <p class="text-lg text-gray-700 mb-8">
+                        I welcome inquiries for a variety of performance and educational engagements.
+                    </p>
+
+                    <!-- Accent Box is now light gray for emphasis -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-classic border border-gray-200 mb-8">
+                        <h3 class="text-xl font-serif font-semibold text-accent-gold mb-3">Performance & Educational Services</h3>
+                        <ul class="list-disc list-inside space-y-1 text-text-dark text-base">
+                            <li>Concert Recitals: Full-length solo performances in major halls.</li>
+                            <li>Orchestral Engagements: Guest soloist appearances.</li>
+                            <li>Private Events: Elegant music for weddings, ceremonies, and corporate galas.</li>
+                            <li>Private Piano Lessons: Highly selective one-on-one virtual instruction.</li>
+                            <li>Masterclasses: Advanced pedagogy and technique sessions for conservatories and universities.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Button and Icons -->
+                    <div class="text-center md:text-left">
+                        <a href="mailto:345345sayokosayoko@gmail.com?subject=Inquiry%20for%20Pianist%20Sayoko" class="inline-block w-full md:w-auto bg-text-dark text-white font-bold py-4 px-10 rounded-full hover:bg-gray-700 transition duration-300 shadow-xl uppercase tracking-wider text-lg">
+                            Email Sayoko Directly
+                        </a>
+                        
+                        <div class="mt-8 flex justify-center md:justify-start space-x-6">
+                            <!-- Social Icons - Now Dark Text -->
+                            <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-text-dark hover:text-accent-gold transition duration-300">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.613-.263-12.001-.263-15.61 0C.734 3.447 0 4.213 0 5.466v13.068c0 1.253.734 2.02 2.99 2.282 3.61.263 12.001.263 15.61 0 2.256-.262 2.99-1.03 2.99-2.282V5.466c0-1.253-.734-2.02-2.99-2.282zM12 17.5c-4.142 0-7.5-3.358-7.5-7.5s3.358-7.5 7.5-7.5 7.5 3.358 7.5 7.5-3.358 7.5-7.5 7.5zm-2.5-4.5l5-3-5-3v6z"/></svg>
+                            </a>
+                            <a href="https://www.instagram.com/sayoko.pianist" target="_blank" aria-label="Instagram Profile" class="text-text-dark hover:text-accent-gold transition duration-300">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.013 4.85.07c1.479.067 2.164.301 2.646.495.632.257 1.077.595 1.554 1.072.477.477.815.922 1.072 1.554.194.482.428 1.167.495 2.646.057 1.266.07 1.646.07 4.85s-.013 3.584-.07 4.85c-.067 1.479-.301 2.164-.495 2.646-.257.632-.595 1.077-1.072 1.554-.477.477-.922.815-1.554 1.072-.482.194-1.167.428-2.646.495-1.266.057-1.646.07-4.85.07s-3.584-.013-4.85-.07c-1.479-.067-2.164-.301-2.646-.495-.632-.257-1.077-.595-1.554-1.072-.477-.477-.815-.922-1.072-1.554-.194-.482-.428-1.167-.495-2.646-.057-1.266-.07-1.646-.07-4.85s.013-3.584.07-4.85c.067-1.479.301-2.164.495-2.646.257-.632.595-1.077 1.072-1.554.477-.477.922-.815 1.554-1.072.482-.194 1.167-.428 2.646-.495C8.416 2.176 8.796 2.163 12 2.163zm0 3.84a6 6 0 100 12 6 6 0 000-12zM12 15a3 3 0 110-6 3 3 0 010 6zm5.83-6.5a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. MOBILE STACKED VIEW (Hidden on desktop) -->
+            <div class="md:hidden">
+                <div class="booking-mobile-image"></div>
+                <!-- Mobile content panel is now white -->
+                <div class="py-16 px-4 sm:px-6 lg:px-8 max-w-xl mx-auto bg-white text-text-dark"> 
+                    <h2 class="text-4xl font-serif font-bold text-center mb-4 text-text-dark">Booking & Collaboration</h2>
+                    <div class="section-separator mx-auto bg-gray-300"></div>
+                    <p class="text-center text-lg text-gray-700 mb-8">
+                        I welcome inquiries for a variety of performance and educational engagements.
+                    </p>
+
+                    <!-- Accent Box is now light gray for mobile -->
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-classic border border-gray-200 mb-10">
+                        <h3 class="text-2xl font-serif font-semibold text-accent-gold mb-4">Performance & Educational Services</h3>
+                        <ul class="list-disc list-inside space-y-2 text-text-dark text-lg">
+                            <li>**Concert Recitals:** Full-length solo performances in major halls.</li>
+                            <li>**Orchestral Engagements:** Guest soloist appearances.</li>
+                            <li>**Private Events:** Elegant music for weddings, ceremonies, and corporate galas.</li>
+                            <li>**Masterclasses:** Advanced pedagogy and technique sessions for conservatories and universities.</li>
+                            <li>**Private Piano Lessons:** One-on-one or Group piano lessons for all ages.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Button and Icons (Mobile) -->
+                    <div class="text-center">
+                        <a href="mailto:345345sayokosayoko@gmail.com?subject=Inquiry%20for%20Pianist%20Sayoko" class="inline-block w-full bg-text-dark text-white font-bold py-4 px-10 rounded-full hover:bg-gray-700 transition duration-300 shadow-xl uppercase tracking-wider text-lg">
+                            Email Sayoko Directly
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer - Now White Background with Dark Text -->
+    <footer class="bg-white border-t border-gray-300 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-dark">
+            <p class="text-text-dark">&copy; 2024 Sayoko. All Rights Reserved.</p>
+            <div class="mt-4 space-x-6">
+                <!-- Social Icons in Footer -->
+                <a href="https://www.youtube.com/@wsayoko9341" target="_blank" class="text-text-dark hover:text-accent-gold transition duration-300">YouTube</a>
+                <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" class="text-text-dark hover:text-accent-gold transition duration-300">Instagram</a>
+                <a href="booking.html" class="text-text-dark hover:text-accent-gold transition duration-300">Management</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Mobile Menu Functionality
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const isOpen = menu.classList.contains('translate-x-0');
+            if (isOpen) {
+                menu.classList.remove('translate-x-0');
+                menu.classList.add('-translate-x-full');
+            } else {
+                menu.classList.add('translate-x-0');
+                menu.classList.remove('-translate-x-full');
+            }
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+        document.getElementById('close-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // Add event listeners to mobile menu links to close the menu on click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+    </script>
+</body>
+</html>
