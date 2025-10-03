@@ -75,43 +75,139 @@
         </div>
     </div>
 
+    <div 
+        class="w-full h-[50vh] bg-cover bg-center border-b-8 border-accent-gold relative" 
+        style="background-image: url('assets/biography_hero.jpeg'); background-image: url('https://placehold.co/1200x600/181818/b89966?text=RECORDING+HERO+IMAGE');">
+        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <h1 class="text-6xl font-serif font-bold text-white drop-shadow-lg tracking-wider">The biography</h1>
+        </div>
+    </div>
+
     <main>
         <!-- Full Biography Section (Detailed Page Content) -->
-        <section id="biography" class="py-16 md:py-24 bg-background-main">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-4 text-white">Full Biography</h2>
-                <div class="section-separator"></div>
-
-                <div class="lg:flex lg:items-start lg:space-x-12 bg-[#222222] p-8 rounded-lg shadow-classic border border-gray-800">
-                    <!-- Profile Image - Circular look -->
-                    <div class="lg:w-1/3 mb-10 lg:mb-0 flex justify-center">
-                        <img 
-                            src="assets/portrait.png" 
-                            onerror="this.onerror=null; this.src='https://placehold.co/400x400/b89966/ffffff?text=ARTIST+PORTRAIT';"
-                            alt="Artist Profile Photo" 
-                            class="rounded-full w-64 h-64 object-cover shadow-2xl border-4 border-accent-gold/50">
-                    </div>
-                    <!-- Text Content (Longer Biography) -->
-                    <div class="lg:w-2/3 text-gray-300">
-                        <p class="text-lg mb-4">
-                            Sayoko's journey began at the age of five in **[City, Country]**, quickly developing into a prodigious talent. She pursued formal studies at the world-renowned **[Prestigious School]**, where she was mentored by **[Famous Mentor Name]**, graduating with the highest distinction. Her distinctive style is marked by a rare combination of explosive power and delicate lyricism, which has captivated critics and audiences alike.
-                        </p>
-                        <p class="text-lg mb-4">
-                            She rose to international acclaim after securing the **[Major Prize Name]** at the **[Major Competition Name]** in **[Year]**. This success launched a demanding global concert schedule, featuring appearances with the **[Major Orchestra Name]** and conductors such as **[Conductor Name]**. Sayoko is particularly dedicated to illuminating the nuanced works of lesser-known 20th-century French and Russian composers, often pairing them with established classics by Bach, Beethoven, and Brahms.
-                        </p>
-                        <p class="text-lg">
-                            Committed to pedagogy, Sayoko maintains a small, highly selective private teaching studio and regularly leads masterclasses at leading musical institutions. She currently resides in **[Current City]**.
-                        </p>
-                        <a href="#" class="mt-6 inline-block text-accent-gold hover:text-white transition duration-300 font-semibold text-lg">
-                            Download Full CV &rarr;
-                        </a>
-                    </div>
-                </div>
+         <!-- Biography Snippet and CTAs (Landing Page Content) -->
+        <section id="biography-snippet" class="border-b border-gray-300">
+            
+            <!-- 1. DESKTOP SPLIT VIEW (Image Left, Text Right) - Full Screen Height -->
+            <div class="hidden md:flex min-h-screen">
                 
-                <div class="text-center mt-16">
-                    <a href="recordings.html" class="inline-block bg-accent-gold text-black font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
-                        Continue to Recordings
-                    </a>
+                <!-- Left Panel: Image Background (50% width) -->
+                <div 
+                    class="w-1/2 bg-cover bg-center" 
+                    style="background-image: url('assets/biography_portrait.PNG');">
+                    <!-- Image content handled via CSS background-image -->
+                </div>
+
+                <!-- Right Panel: Text & CTAs on WHITE Background (50% width) -->
+                <div class="w-1/2 bg-white text-text-dark flex flex-col justify-center py-20 px-16 lg:px-24">
+                    <h2 class="text-4xl lg:text-5xl font-serif font-bold text-text-dark mb-4">Biography</h2>
+                    <div class="w-24 h-1 bg-accent-gold mb-8 mx-0"></div> <!-- Custom separator -->
+
+                    <!-- This block should be placed inside the main content area of biography.html -->
+
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-accent-gold mb-6">Sayoko Wada | Classical Pianist</h2>
+
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Sayoko Wada (also performing under the name Sadaeja Oh) is a rising classical pianist celebrated for her profound, nuanced interpretations and commanding stage presence. Originally from Osaka, Japan, her artistry is now deeply rooted in the vibrant European classical scene, with a home base in Finland. Sayoko maintains a dual career as both a sought-after concert soloist and a dedicated piano educator, sharing her passion for music through performance and pedagogy.
+                    </p>
+
+                    <h3 class="text-3xl font-serif font-bold text-white mt-10 mb-4">International Education and Recognition</h3>
+
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        Sayoko’s musical foundation is built upon rigorous international training and consistent academic recognition. She holds two prestigious Master’s degrees, first graduating from the esteemed <strong>Royal Welsh College of Music & Drama</strong> in 2022, followed by a second Master's degree from the internationally renowned <strong>Sibelius Academy</strong> in Helsinki in 2024.
+                    </p>
+
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        Her dedication to her craft has been consistently recognized with significant financial support, including a highly coveted <strong class="text-accent-gold">full scholarship</strong> for her studies at the Sibelius Academy. She is also a recognized recipient of both the <strong>Martin Wegelius Foundation</strong> and the <strong>Finnish Scholarship</strong> programs.
+                    </p>
+
+                    <h3 class="text-3xl font-serif font-bold text-white mt-10 mb-4">Career Highlights and Awards</h3>
+
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        Sayoko’s distinguished career trajectory is marked by high-profile performances and international competition success.
+                    </p>
+
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        In a major career highlight, she was selected to perform for <strong class="text-accent-gold">King Charles III</strong> in July 2022, showcasing her artistry to a royal audience. She has also performed on the prestigious stage of the <strong class="text-accent-gold">BBC Proms</strong> as part of a large-scale collaboration between the Sibelius Academy and the Royal College of Music Orchestra, conducted by the celebrated <strong>Sakari Oramo</strong>.
+                    </p>
+
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        Her competitive achievements include being a <strong class="text-accent-gold">finalist in the 2025 Tampere Piano Competition</strong>, where she delivered a critically acclaimed performance of the Ravel Concerto in G major alongside the <strong class="text-accent-gold">Tampere Philharmonic Orchestra</strong>.
+                    </p>
+
+                    <h4 class="text-2xl font-serif font-semibold text-white mt-6 mb-3">Selected Awards:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-lg text-gray-300 pl-4">
+                        <li><strong class="text-accent-gold">Eric Hodges Memorial Prize, First Prize (2017):</strong> Selected as the representative pianist for the Royal Welsh College of Music to perform at a prominent London church.</li>
+                        <li><strong class="text-accent-gold">Jury Special Prize at the Kyoto International Competition (2019).</strong></li>
+                        <li>Final Stage recognition at the 18th International Chopin Piano Competition in ASIA.</li>
+                    </ul>
+
+                    <p class="text-lg text-gray-300 mt-6 leading-relaxed">
+                        An active international performer, Sayoko participated in the <strong class="text-accent-gold">Crossing Keyboard tour</strong> in February 2023, which saw her perform across the Baltic States of Lithuania, Latvia, and Estonia, cultivating a wide European following.
+                    </p>
+                    <!-- End of Bio Text -->
+
+                </div>
+            </div>
+
+            <!-- 2. MOBILE STACKED VIEW (Hidden on desktop) -->
+            <div class="md:hidden py-16 bg-white text-text-dark">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <!-- Image for Mobile -->
+                    <div class="flex justify-center mb-8">
+                        <img 
+                            src="assets/biography_portrait.PNG" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/300x300/141414/b89966?text=ARTIST+PORTRAIT';"
+                            alt="Artist Profile Photo" 
+                            class="w-full h-80 object-cover border-4 border-accent-gold/50">
+                    </div>
+                    
+                    <h2 class="text-4xl font-serif font-bold text-text-dark mb-6">Biography</h2>
+                    <div class="w-24 h-1 bg-accent-gold mb-8 mx-auto"></div> <!-- Custom separator -->
+
+                    <!-- This block should be placed inside the main content area of biography.html -->
+
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-accent-gold mb-6">Sayoko Wada | Classical Pianist</h2>
+
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Sayoko Wada (also performing under the name Sadaeja Oh) is a rising classical pianist celebrated for her profound, nuanced interpretations and commanding stage presence. Originally from Osaka, Japan, her artistry is now deeply rooted in the vibrant European classical scene, with a home base in Finland. Sayoko maintains a dual career as both a sought-after concert soloist and a dedicated piano educator, sharing her passion for music through performance and pedagogy.
+                    </p>
+
+                    <h3 class="text-3xl font-serif font-bold text-white mt-10 mb-4">International Education and Recognition</h3>
+
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        Sayoko’s musical foundation is built upon rigorous international training and consistent academic recognition. She holds two prestigious Master’s degrees, first graduating from the esteemed <strong>Royal Welsh College of Music & Drama</strong> in 2022, followed by a second Master's degree from the internationally renowned <strong>Sibelius Academy</strong> in Helsinki in 2024.
+                    </p>
+
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        Her dedication to her craft has been consistently recognized with significant financial support, including a highly coveted <strong class="text-accent-gold">full scholarship</strong> for her studies at the Sibelius Academy. She is also a recognized recipient of both the <strong>Martin Wegelius Foundation</strong> and the <strong>Finnish Scholarship</strong> programs.
+                    </p>
+
+                    <h3 class="text-3xl font-serif font-bold text-white mt-10 mb-4">Career Highlights and Awards</h3>
+
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        Sayoko’s distinguished career trajectory is marked by high-profile performances and international competition success.
+                    </p>
+
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        In a major career highlight, she was selected to perform for <strong class="text-accent-gold">King Charles III</strong> in July 2022, showcasing her artistry to a royal audience. She has also performed on the prestigious stage of the <strong class="text-accent-gold">BBC Proms</strong> as part of a large-scale collaboration between the Sibelius Academy and the Royal College of Music Orchestra, conducted by the celebrated <strong>Sakari Oramo</strong>.
+                    </p>
+
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        Her competitive achievements include being a <strong class="text-accent-gold">finalist in the 2025 Tampere Piano Competition</strong>, where she delivered a critically acclaimed performance of the Ravel Concerto in G major alongside the <strong class="text-accent-gold">Tampere Philharmonic Orchestra</strong>.
+                    </p>
+
+                    <h4 class="text-2xl font-serif font-semibold text-white mt-6 mb-3">Selected Awards:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-lg text-gray-300 pl-4">
+                        <li><strong class="text-accent-gold">Eric Hodges Memorial Prize, First Prize (2017):</strong> Selected as the representative pianist for the Royal Welsh College of Music to perform at a prominent London church.</li>
+                        <li><strong class="text-accent-gold">Jury Special Prize at the Kyoto International Competition (2019).</strong></li>
+                        <li>Final Stage recognition at the 18th International Chopin Piano Competition in ASIA.</li>
+                    </ul>
+
+                    <p class="text-lg text-gray-300 mt-6 leading-relaxed">
+                        An active international performer, Sayoko participated in the <strong class="text-accent-gold">Crossing Keyboard tour</strong> in February 2023, which saw her perform across the Baltic States of Lithuania, Latvia, and Estonia, cultivating a wide European following.
+                    </p>
+                    <!-- End of Bio Text -->
                 </div>
             </div>
         </section>
@@ -123,9 +219,9 @@
             <p>&copy; 2024 Sayoko. All Rights Reserved.</p>
             <div class="mt-4 space-x-6">
                 <!-- Social Icons -->
-                <a href="#" class="hover:text-accent-gold transition duration-300">YouTube (Performances)</a>
-                <a href="#" class="hover:text-accent-gold transition duration-300">Instagram</a>
-                <a href="#" class="hover:text-accent-gold transition duration-300">Management</a>
+                <a href="https://www.youtube.com/@wsayoko9341" class="hover:text-accent-gold transition duration-300">YouTube (Performances)</a>
+                <a href="https://www.instagram.com/sayoko.pianist/" class="hover:text-accent-gold transition duration-300">Instagram</a>
+                <a href="booking.html" class="hover:text-accent-gold transition duration-300">Management</a>
             </div>
         </div>
     </footer>
