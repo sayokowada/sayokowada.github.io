@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayoko - Gallery</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind with elegant theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background-main': '#111111', // Dark gray for dark sections
+                        'text-dark': '#141414', // Very dark gray/near black text (New)
+                        'text-light': '#ffffff', // White text
+                        'accent-gold': '#b89966', // Muted, sophisticated gold accent
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'], // Elegant serif font for titles and elegance
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        /* Custom styles for elegance and focus */
+        .shadow-classic {
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05); /* Lighter shadow on dark background */
+        }
+        .section-separator {
+            width: 150px;
+            height: 2px;
+            background-color: #444444; /* Dark gray separator (will be overridden on white sections) */
+            margin: 0 auto 2.5rem;
+        }
+
+        .gallery-hero {
+            height: 50vh;
+            background-size: cover;
+            background-position: center;
+            /* Placeholder: Use a stunning performance photo */
+            background-image: url('assets/gallery_hero.jpg'); 
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans antialiased">
+
+    <!-- Header / Navigation - PURE BLACK -->
+    <header class="sticky top-0 z-50 bg-black shadow-2xl">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Title: Gold text, hovers to white -->
+            <a href="index.html" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-white">
+                Sayoko
+            </a>
+            <div class="space-x-8 hidden md:flex">
+                <!-- Links now point to separate files -->
+                <a href="recordings.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Recordings</a>
+                <a href="biography.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Biography</a>
+                <a href="gallery.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Gallery</a>
+                <a href="booking.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Booking</a>
+            </div>
+            <!-- Social Icons on Desktop -->
+            <div class="space-x-4 hidden md:flex">
+                <!-- YouTube Icon -->
+                <a href="https://www.youtube.com/@YOURCHANNELNAME" target="_blank" aria-label="YouTube Channel" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+                    </svg>
+                </a>
+                <!-- Instagram Icon -->
+                <a href="https://www.instagram.com/YOURINSTAGRAMHANDLE" target="_blank" aria-label="Instagram Profile" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
+                    </svg>
+                </a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Drawer (Hidden by default) -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background-main transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div class="p-8">
+            <button id="close-menu-btn" class="absolute top-4 right-4 text-white hover:text-accent-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <nav class="flex flex-col space-y-8 mt-12 text-center">
+                <a href="recordings.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Recordings</a>
+                <a href="biography.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Biography</a>
+                <a href="gallery.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Gallery</a>
+                <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
+                
+                <!-- Social Icons in Mobile Menu -->
+                <div class="flex justify-center space-x-8 mt-8">
+                    <a href="https://www.youtube.com/@YOURCHANNELNAME" target="_blank" aria-label="YouTube Channel" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/YOURINSTAGRAMHANDLE" target="_blank" aria-label="Instagram Profile" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
+                        </svg>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header (Full Width Image) -->
+    <div 
+        class="gallery-hero w-full border-b-8 border-accent-gold relative" 
+        style="background-image: url('assets/gallery_hero.jpg');">
+        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <h1 class="text-6xl font-serif font-bold text-white drop-shadow-lg tracking-wider">Gallery</h1>
+        </div>
+    </div>
+
+
+    <main>
+        <!-- Gallery Section (Content) - WHITE BG -->
+        <section id="gallery-content" class="py-16 md:py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-4 text-text-dark">Visual Impressions</h2>
+                <div class="section-separator mx-auto bg-gray-300"></div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6">
+                    <!-- Gallery Items (Placeholder Images) -->
+                    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg shadow-lg">
+                        <img src="assets/gallery-1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/444444/ffffff?text=1';" alt="Gallery Image 1" class="object-cover w-full h-full hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg shadow-lg">
+                        <img src="assets/gallery-2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/444444/ffffff?text=2';" alt="Gallery Image 2" class="object-cover w-full h-full hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg shadow-lg">
+                        <img src="assets/gallery-3.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/444444/ffffff?text=3';" alt="Gallery Image 3" class="object-cover w-full h-full hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg shadow-lg">
+                        <img src="assets/gallery-4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/444444/ffffff?text=4';" alt="Gallery Image 4" class="object-cover w-full h-full hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg shadow-lg">
+                        <img src="assets/gallery-5.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/444444/ffffff?text=5';" alt="Gallery Image 5" class="object-cover w-full h-full hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg shadow-lg">
+                        <img src="assets/gallery-6.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/444444/ffffff?text=6';" alt="Gallery Image 6" class="object-cover w-full h-full hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg shadow-lg">
+                        <img src="assets/gallery-7.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/444444/ffffff?text=7';" alt="Gallery Image 7" class="object-cover w-full h-full hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg shadow-lg">
+                        <img src="assets/gallery-8.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/444444/ffffff?text=8';" alt="Gallery Image 8" class="object-cover w-full h-full hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg shadow-lg">
+                        <img src="assets/gallery-9.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/444444/ffffff?text=9';" alt="Gallery Image 9" class="object-cover w-full h-full hover:scale-105 transition duration-500">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer - White Background with Dark Text -->
+    <footer class="bg-white border-t border-gray-300 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-dark">
+            <p class="text-text-dark">&copy; 2024 Sayoko. All Rights Reserved.</p>
+            <div class="mt-4 space-x-6">
+                <!-- Social Icons in Footer -->
+                <!-- YouTube Icon -->
+                <a href="https://www.youtube.com/@YOURCHANNELNAME" target="_blank" aria-label="YouTube Channel" class="inline-block text-text-dark hover:text-accent-gold transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+                    </svg>
+                </a>
+                <!-- Instagram Icon -->
+                <a href="https://www.instagram.com/YOURINSTAGRAMHANDLE" target="_blank" aria-label="Instagram Profile" class="inline-block text-text-dark hover:text-accent-gold transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
+                    </svg>
+                </a>
+                <a href="booking.html" class="text-text-dark hover:text-accent-gold transition duration-300">Management</a>
+            </div>
+            <p class="text-sm mt-4 text-gray-500">Hosted for Free on GitHub Pages</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Mobile Menu Functionality
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const isOpen = menu.classList.contains('translate-x-0');
+            if (isOpen) {
+                menu.classList.remove('translate-x-0');
+                menu.classList.add('-translate-x-full');
+            } else {
+                menu.classList.add('translate-x-0');
+                menu.classList.remove('-translate-x-full');
+            }
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+        document.getElementById('close-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // Add event listeners to mobile menu links to close the menu on click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+    </script>
+</body>
+</html>
