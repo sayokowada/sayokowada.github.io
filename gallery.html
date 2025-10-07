@@ -46,6 +46,32 @@
             /* Placeholder: Use a stunning performance photo */
             background-image: url('assets/gallery_hero.jpg'); 
         }
+
+        /* Modal specific styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+        }
     </style>
 </head>
 <body class="bg-black text-white font-sans antialiased">
@@ -55,7 +81,7 @@
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- Title: Gold text, hovers to white -->
             <a href="index.html" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-white">
-                Sayoko Wada
+                Sayoko
             </a>
             <div class="space-x-8 hidden md:flex">
                 <!-- Links now point to separate files -->
@@ -80,7 +106,7 @@
                     </svg>
                 </a>
             </div>
-            <!-- Mobile Menu Button: Light gray icon, hovers to gold -->
+            <!-- Mobile Menu Button -->
             <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
@@ -94,21 +120,21 @@
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <nav class="flex flex-col space-y-8 mt-12 text-center">
-                <a href="index.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Home</a>
-                <a href="gallery.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Gallery</a>
+                <a href="index.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Home</a>
+                <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
                 <a href="recordings.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Recordings</a>
                 <a href="biography.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Biography</a>
-                <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
+                <a href="gallery.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Gallery</a>
                 
                 <!-- Social Icons in Mobile Menu -->
                 <div class="flex justify-center space-x-8 mt-8">
-                    <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-gray-200 hover:text-accent-gold transition duration-300">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="https://www.youtube.com/@YOURCHANNELNAME" target="_blank" aria-label="YouTube Channel" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
                         </svg>
                     </a>
-                    <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-gray-200 hover:text-accent-gold transition duration-300">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="https://www.instagram.com/YOURINSTAGRAMHANDLE" target="_blank" aria-label="Instagram Profile" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
                         </svg>
                     </a>
@@ -169,8 +195,6 @@
 
     </main>
 
-
-
     <!-- Footer - White Background with Dark Text -->
     <footer class="bg-white border-t border-gray-300 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-dark">
@@ -183,6 +207,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- Full-Screen Image Modal (Lightbox) -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal()">
+        <button class="absolute top-4 right-4 text-white hover:text-accent-gold transition duration-300 z-10 p-4" onclick="closeModal()">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <img id="modalImage" class="modal-content object-contain" src="" alt="Full Screen Gallery Image" onclick="event.stopPropagation()">
+    </div>
 
     <script>
         // JavaScript for Mobile Menu Functionality
