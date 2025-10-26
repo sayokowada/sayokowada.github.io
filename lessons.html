@@ -19,6 +19,9 @@
         const BLOCK_LESSON_10_45 = 54;    // % discount for 4-lesson block
         const BLOCK_LESSON_10_60 = 64;    // % discount for 4-lesson block
 
+        const BLOCK_LESSON_S_45 = 50;    // % discount for 4-lesson block
+        const BLOCK_LESSON_S_60 = 60;    // % discount for 4-lesson block
+
         const FRIEND_DISCOUNT = 25;     // % discount for bring-a-friend offer
 
         function calculateDiscount(discounted, original) {
@@ -211,7 +214,7 @@
                 <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-4 text-text-dark">Pricing and Packages</h2>
                 <div class="section-separator mx-auto bg-gray-300"></div>
 
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mt-12">
                     
                     <!-- 1. Trial Lesson -->
                     <div class="price-card bg-gray-50 p-6 rounded-xl text-center border-2 border-gray-100">
@@ -282,6 +285,28 @@
                             <p class="text-sm font-bold text-gray-700">60 min lessons:</p>
                             <div class="text-xl font-serif font-extrabold text-accent-gold mb-1" id="block10Unit60Display"></div>
                             <p class="text-xs text-gray-500 mb-6" id="block10Price60Display"></p>
+                        </div>
+                        <a href="booking.html" class="inline-block w-full bg-text-dark text-white font-bold py-3 px-6 rounded-full hover:bg-gray-800 transition duration-300 text-sm">Buy Package</a>
+                    </div>
+
+                    <!-- 5. Semester Lesson Block (Best Long term) -->
+                    <div class="price-card bg-gray-50 p-6 rounded-xl text-center border-2 border-gray-100 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">BEST LONG TERM</div>
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold text-text-dark mb-3">Entire semester</h3>
+                            <p class="text-sm text-gray-500 mb-6">Fall (19 weeks) or Spring semester (21 weeks)</p>
+                            <p class="text-sm text-gray-500 mb-6">Save <span id="discountSDisplay60"></span> - <span id="discountSDisplay45"></span>%!</p>
+                        </div>
+                        <div class="mb-4">
+                            <!-- 45 min package -->
+                            <p class="text-sm font-bold text-gray-700">45 min lessons:</p>
+                            <div class="text-xl font-serif font-extrabold text-accent-gold mb-1" id="blockSUnit45Display"></div>
+                            <p class="text-xs text-gray-500 mb-3" id="blockSPrice45Display"></p>
+                            
+                            <!-- 60 min package -->
+                            <p class="text-sm font-bold text-gray-700">60 min lessons:</p>
+                            <div class="text-xl font-serif font-extrabold text-accent-gold mb-1" id="blockSUnit60Display"></div>
+                            <p class="text-xs text-gray-500 mb-6" id="blockSPrice60Display"></p>
                         </div>
                         <a href="booking.html" class="inline-block w-full bg-text-dark text-white font-bold py-3 px-6 rounded-full hover:bg-gray-800 transition duration-300 text-sm">Buy Package</a>
                     </div>
@@ -365,6 +390,13 @@
             const block10Discount60 = calculateDiscount(BLOCK_LESSON_10_60, SINGLE_LESSON_PRICE_60)
 
 
+            const blockSTotalPrice45 = (BLOCK_LESSON_10_45 * 10).toFixed(2);
+            const blockSDiscount45 = calculateDiscount(BLOCK_LESSON_10_45, SINGLE_LESSON_PRICE_45)
+            
+            const blockSTotalPrice60 = (BLOCK_LESSON_S_60 * 10).toFixed(2);
+            const blockSDiscount60 = calculateDiscount(BLOCK_LESSON_S_60, SINGLE_LESSON_PRICE_60)
+
+
             // --- Display Single Lesson Prices ---
             document.getElementById('trialPriceDisplay').textContent = `${currency}${TRIAL_LESSON_PRICE}`;
             document.getElementById('singlePrice45Display').textContent = `${currency}${SINGLE_LESSON_PRICE_45}`;
@@ -389,6 +421,16 @@
             document.getElementById('block10Price60Display').textContent = `(Total: ${currency}${block10TotalPrice60})`;
             document.getElementById('block10Unit60Display').textContent = `${currency}${BLOCK_LESSON_10_60}`;
 
+            
+            // --- Display Semester Lesson Block Prices ---
+            document.getElementById('discountSDisplay45').textContent = blockSDiscount45;
+            document.getElementById('discountSDisplay60').textContent = blockSDiscount60;
+            
+            document.getElementById('blockSPrice45Display').textContent = `(Total: ${currency}${blockSTotalPrice45})`;
+            document.getElementById('blockSUnit45Display').textContent = `${currency}${BLOCK_LESSON_S_45}`;
+
+            document.getElementById('blockSPrice60Display').textContent = `(Total: ${currency}${blockSTotalPrice60})`;
+            document.getElementById('blockSUnit60Display').textContent = `${currency}${BLOCK_LESSON_S_60}`;
         });
     </script>
 </body>
