@@ -18,7 +18,7 @@
         const FRIEND_DISCOUNT = 25;     // % discount for bring-a-friend offer
 
         function calculatePrice(base, discount) {
-            return (base * (1 - discount / 100)).toFixed(2);
+            return (base * (1 - discount / 100)).toFixed(0);
         }
         
         tailwind.config = {
