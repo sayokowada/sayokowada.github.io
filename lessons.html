@@ -22,7 +22,7 @@
         const FRIEND_DISCOUNT = 25;     // % discount for bring-a-friend offer
 
         function calculateDiscount(discounted, original) {
-            return (1- (discounted / original)).toFixed(1);
+            return (100 - (discounted / original)*100).toFixed(1);
         }
         
         tailwind.config = {
