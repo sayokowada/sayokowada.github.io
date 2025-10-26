@@ -11,14 +11,18 @@
     <script>
         const TRIAL_LESSON_PRICE = 29; // Price for 30-minute trial
         const SINGLE_LESSON_PRICE_45 = 64; // Price for one 45-minute lesson
-        const SINGLE_LESSON_PRICE_60 = 79; // Price for one 60-minute lesson
+        const SINGLE_LESSON_PRICE_60 = 74; // Price for one 60-minute lesson
         
-        const DISCOUNT_4_BLOCK = 10;    // % discount for 4-lesson block
-        const DISCOUNT_10_BLOCK = 20;   // % discount for 10-lesson block
+        const BLOCK_LESSON_4_45 = 59;    // % discount for 4-lesson block
+        const BLOCK_LESSON_4_60 = 69;    // % discount for 4-lesson block
+
+        const BLOCK_LESSON_10_45 = 54;    // % discount for 4-lesson block
+        const BLOCK_LESSON_10_60 = 64;    // % discount for 4-lesson block
+
         const FRIEND_DISCOUNT = 25;     // % discount for bring-a-friend offer
 
-        function calculatePrice(base, discount) {
-            return (base * (1 - discount / 100)).toFixed(0);
+        function calculateDiscount(discounted, original) {
+            return (1- (discounted / original)).toFixed(1);
         }
         
         tailwind.config = {
@@ -245,7 +249,7 @@
                     <div class="price-card bg-gray-50 p-6 rounded-xl text-center border-2 border-gray-100">
                         <div>
                             <h3 class="text-2xl font-serif font-bold text-text-dark mb-3">4 Lesson Block</h3>
-                            <p class="text-sm text-gray-500 mb-6">Save <span id="discount4Display"></span>%!</p>
+                            <p class="text-sm text-gray-500 mb-6">Save <span id="block4Discount45"></span> - <span id="block4Discount60"></span>%!</p>
                         </div>
                         <div class="mb-4">
                             <!-- 45 min package -->
@@ -266,7 +270,7 @@
                         <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">BEST VALUE</div>
                         <div>
                             <h3 class="text-2xl font-serif font-bold text-text-dark mb-3">10 Lesson Block</h3>
-                            <p class="text-sm text-gray-500 mb-6">Save <span id="discount10Display"></span>%!</p>
+                            <p class="text-sm text-gray-500 mb-6">Save <span id="block10Discount45"></span> - <span id="block10Discount60"></span>%!</p>
                         </div>
                         <div class="mb-4">
                             <!-- 45 min package -->
@@ -348,17 +352,17 @@
             document.getElementById('friendDiscountDisplay').textContent = `${FRIEND_DISCOUNT}%`;
 
             // Calculate package prices
-            const block4UnitPrice45 = calculatePrice(SINGLE_LESSON_PRICE_45, DISCOUNT_4_BLOCK);
-            const block4TotalPrice45 = (block4UnitPrice45 * 4).toFixed(2);
+            const block4TotalPrice45 = (BLOCK_LESSON_4_45 * 4).toFixed(2);
+            const block4Discount45 = calculateDiscount(BLOCK_LESSON_4_45, SINGLE_LESSON_PRICE_45)
 
-            const block4UnitPrice60 = calculatePrice(SINGLE_LESSON_PRICE_60, DISCOUNT_4_BLOCK);
-            const block4TotalPrice60 = (block4UnitPrice60 * 4).toFixed(2);
+            const block4TotalPrice60 = (BLOCK_LESSON_4_60 * 4).toFixed(2);
+            const block4Discount60 = calculateDiscount(BLOCK_LESSON_4_60, SINGLE_LESSON_PRICE_60)
             
-            const block10UnitPrice45 = calculatePrice(SINGLE_LESSON_PRICE_45, DISCOUNT_10_BLOCK);
-            const block10TotalPrice45 = (block10UnitPrice45 * 10).toFixed(2);
+            const block10TotalPrice45 = (BLOCK_LESSON_10_45 * 10).toFixed(2);
+            const block10Discount45 = calculateDiscount(BLOCK_LESSON_10_45, SINGLE_LESSON_PRICE_45)
 
-            const block10UnitPrice60 = calculatePrice(SINGLE_LESSON_PRICE_60, DISCOUNT_10_BLOCK);
-            const block10TotalPrice60 = (block10UnitPrice60 * 10).toFixed(2);
+            const block10TotalPrice60 = (BLOCK_LESSON_10_60 * 10).toFixed(2);
+            const block10Discount60 = calculateDiscount(BLOCK_LESSON_10_60, SINGLE_LESSON_PRICE_45)
 
 
             // --- Display Single Lesson Prices ---
@@ -369,19 +373,19 @@
             // --- Display 4 Lesson Block Prices ---
             document.getElementById('discount4Display').textContent = DISCOUNT_4_BLOCK;
             document.getElementById('block4Price45Display').textContent = `(Total: ${currency}${block4TotalPrice45})`;
-            document.getElementById('block4Unit45Display').textContent = `${currency}${block4UnitPrice45}`;
+            document.getElementById('block4Unit45Display').textContent = `${currency}${BLOCK_LESSON_4_45}`;
 
             document.getElementById('block4Price60Display').textContent = `(Total: ${currency}${block4TotalPrice60})`;
-            document.getElementById('block4Unit60Display').textContent = `${currency}${block4UnitPrice60}`;
+            document.getElementById('block4Unit60Display').textContent = `${currency}${BLOCK_LESSON_4_60}`;
 
 
             // --- Display 10 Lesson Block Prices ---
             document.getElementById('discount10Display').textContent = DISCOUNT_10_BLOCK;
             document.getElementById('block10Price45Display').textContent = `(Total: ${currency}${block10TotalPrice45})`;
-            document.getElementById('block10Unit45Display').textContent = `${currency}${block10UnitPrice45}`;
+            document.getElementById('block10Unit45Display').textContent = `${currency}${BLOCK_LESSON_10_45}`;
 
             document.getElementById('block10Price60Display').textContent = `(Total: ${currency}${block10TotalPrice60})`;
-            document.getElementById('block10Unit60Display').textContent = `${currency}${block10UnitPrice60}`;
+            document.getElementById('block10Unit60Display').textContent = `${currency}${BLOCK_LESSON_10_60}`;
 
         });
     </script>
