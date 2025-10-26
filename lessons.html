@@ -390,10 +390,12 @@
             const block10Discount60 = calculateDiscount(BLOCK_LESSON_10_60, SINGLE_LESSON_PRICE_60)
 
 
-            const blockSTotalPrice45 = (BLOCK_LESSON_10_45 * 10).toFixed(2);
+            const blockSFTotalPrice45 = (BLOCK_LESSON_10_45 * 19).toFixed(2);
+            const blockSSTotalPrice45 = (BLOCK_LESSON_10_45 * 21).toFixed(2);
             const blockSDiscount45 = calculateDiscount(BLOCK_LESSON_10_45, SINGLE_LESSON_PRICE_45)
             
-            const blockSTotalPrice60 = (BLOCK_LESSON_S_60 * 10).toFixed(2);
+            const blockSFTotalPrice60 = (BLOCK_LESSON_S_60 * 19).toFixed(2);
+            const blockSSTotalPrice60 = (BLOCK_LESSON_S_60 * 21).toFixed(2);
             const blockSDiscount60 = calculateDiscount(BLOCK_LESSON_S_60, SINGLE_LESSON_PRICE_60)
 
 
@@ -426,10 +428,10 @@
             document.getElementById('discountSDisplay45').textContent = blockSDiscount45;
             document.getElementById('discountSDisplay60').textContent = blockSDiscount60;
             
-            document.getElementById('blockSPrice45Display').textContent = `(Total: ${currency}${blockSTotalPrice45})`;
+            document.getElementById('blockSPrice45Display').textContent = `(Total: ${currency}${blockSFTotalPrice45} - ${currency}${blockSSTotalPrice45})`;
             document.getElementById('blockSUnit45Display').textContent = `${currency}${BLOCK_LESSON_S_45}`;
 
-            document.getElementById('blockSPrice60Display').textContent = `(Total: ${currency}${blockSTotalPrice60})`;
+            document.getElementById('blockSPrice60Display').textContent = `(Total: ${currency}${blockSFTotalPrice60} - ${currency}${blockSSTotalPrice60})`;
             document.getElementById('blockSUnit60Display').textContent = `${currency}${BLOCK_LESSON_S_60}`;
         });
     </script>
