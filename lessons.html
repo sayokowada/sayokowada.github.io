@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayoko - Piano Lessons & Pricing</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- === PRICING VARIABLES: Edit these values to update prices site-wide === -->
+    <script>
+        const SINGLE_LESSON_PRICE = 60; // Price for one 60-minute lesson
+        const DISCOUNT_4_BLOCK = 10;    // % discount for 4-lesson block
+        const DISCOUNT_10_BLOCK = 15;   // % discount for 10-lesson block
+        const FRIEND_DISCOUNT = 30;     // % discount for bring-a-friend offer
+
+        function calculatePrice(base, discount) {
+            return (base * (1 - discount / 100)).toFixed(2);
+        }
+        
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background-main': '#111111', // Dark gray for dark sections
+                        'text-dark': '#141414', // Very dark gray/near black text (New)
+                        'text-light': '#ffffff', // White text
+                        'accent-gold': '#b89966', // Muted, sophisticated gold accent
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'], // Elegant serif font for titles and elegance
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        .section-separator {
+            width: 150px;
+            height: 2px;
+            background-color: #444444; 
+            margin: 0 auto 2.5rem;
+        }
+
+        .lesson-hero {
+            height: 50vh;
+            background-size: cover;
+            background-position: center;
+            /* Placeholder: A beautiful image of a piano or sheet music */
+            background-image: url('assets/lessons.jpeg'); 
+        }
+        
+        .price-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white text-text-dark font-sans antialiased">
+
+    <!-- Header / Navigation - PURE BLACK -->
+    <header class="sticky top-0 z-50 bg-black shadow-2xl">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Title: Gold text, hovers to white -->
+            <a href="index.html" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-white">
+                Sayoko
+            </a>
+            
+            <!-- Main Desktop Links -->
+            <div class="space-x-8 hidden md:flex">
+                <a href="index.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Home</a>
+                <a href="recordings.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Recordings</a>
+                <a href="lessons.html" class="text-lg text-accent-gold hover:text-white transition duration-300">Lessons</a>
+                <a href="biography.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Biography</a>
+                <a href="gallery.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Gallery</a>
+                <a href="booking.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Booking</a>
+            </div>
+            
+            <!-- Combined Social Icons + Language Switch (Desktop) -->
+            <div class="flex items-center space-x-6 hidden md:flex">
+                
+                <!-- Language Switch -->
+                <div class="text-sm font-semibold tracking-wider text-gray-400">
+                    <a href="lessons.html" class="text-accent-gold hover:text-white transition duration-300">EN</a>
+                    <span class="text-gray-600"> | </span>
+                    <a href="lessons.jp.html" class="hover:text-accent-gold transition duration-300">JP</a>
+                </div>
+                
+                <!-- Social Icons -->
+                <div class="space-x-4 flex">
+                    <!-- YouTube Icon -->
+                    <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+                        </svg>
+                    </a>
+                    <!-- Instagram Icon -->
+                    <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Drawer (Hidden by default) -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background-main transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div class="p-8">
+            <button id="close-menu-btn" class="absolute top-4 right-4 text-white hover:text-accent-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <nav class="flex flex-col space-y-8 mt-12 text-center">
+                <a href="recordings.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Recordings</a>
+                <a href="biography.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Biography</a>
+                <a href="gallery.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Gallery</a>
+                <a href="lessons.html" class="text-3xl text-accent-gold hover:text-white transition duration-300" onclick="toggleMobileMenu()">Lessons</a>
+                <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
+                
+                <!-- Social Icons in Mobile Menu -->
+                <div class="flex justify-center space-x-8 mt-8">
+                    <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
+                        </svg>
+                    </a>
+                </div>
+            </nav>
+            <!-- Language Switch in Mobile Menu -->
+            <div class="mt-12 text-center text-lg font-semibold tracking-wider text-gray-400">
+                <a href="lessons.html" class="text-accent-gold hover:text-white transition duration-300">EN</a>
+                <span class="text-gray-600"> | </span>
+                <a href="lessons.jp.html" class="hover:text-accent-gold transition duration-300">JP</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header (Full Width Image) -->
+    <div 
+        class="lesson-hero w-full border-b-8 border-accent-gold relative" 
+        style="background-image: url('assets/lessons.jpeg')"
+        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <h1 class="text-6xl font-serif font-bold text-white drop-shadow-lg tracking-wider">Piano Lessons & Pricing</h1>
+        </div>
+    </div>
+
+    <main class="bg-white">
+        
+        <!-- Introduction and Location -->
+        <section class="py-16 bg-white text-center">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-4xl font-serif font-bold text-text-dark mb-4">Learn with Sayoko</h2>
+                <div class="section-separator mx-auto bg-gray-300"></div>
+                <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+                    I offer personalized, one-on-one piano instruction for **all ages and skill levels**, from the very first notes to advanced repertoire study. 
+                    Lessons are primarily organized in **Helsinki**, but **home visits** within the metropolitan area are also available upon inquiry for convenience.
+                </p>
+                <div class="text-base text-gray-500 font-semibold italic">
+                    All lessons are 45 minutes in length, except trial lessons which are 30 minutes.
+                </div>
+            </div>
+        </section>
+
+        <!-- Bring a Friend Banner -->
+        <section class="bg-accent-gold/10 py-8 border-t-4 border-b-4 border-accent-gold text-center">
+            <div class="max-w-4xl mx-auto px-4">
+                <h3 class="text-3xl font-serif font-bold text-accent-gold mb-2">Special Offer: Bring a Friend!</h3>
+                <p class="text-xl text-text-dark font-medium">
+                    Enroll in a lesson package with a friend, and **you both receive a $30\%$ discount** on the package price!
+                    It's a perfect opportunity for shared learning and motivation.
+                </p>
+                <a href="booking.html" class="mt-4 inline-block bg-accent-gold text-white font-bold py-2 px-6 rounded-full hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
+                    Inquire About Group Lessons
+                </a>
+            </div>
+        </section>
+
+        <!-- Pricing Table -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-4 text-text-dark">Pricing and Packages</h2>
+                <div class="section-separator mx-auto bg-gray-300"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
+                    
+                    <!-- 1. Trial Lesson -->
+                    <div class="price-card bg-gray-50 p-6 rounded-xl text-center flex flex-col justify-between border-2 border-gray-100">
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold text-text-dark mb-3">Trial Lesson</h3>
+                            <p class="text-sm text-gray-500 mb-6">45 minutes</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-serif font-extrabold text-accent-gold mb-4" id="trialPrice"></div>
+                            <p class="text-sm text-gray-600 mb-6">A no-obligation introductory session.</p>
+                            <a href="booking.html" class="inline-block w-full bg-text-dark text-white font-bold py-3 px-6 rounded-full hover:bg-gray-800 transition duration-300 text-sm">Book Trial</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 2. Single Lesson (Reference Price) -->
+                    <div class="price-card bg-white p-6 rounded-xl text-center flex flex-col justify-between border-2 border-text-dark">
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold text-text-dark mb-3">Single Lesson</h3>
+                            <p class="text-sm text-gray-500 mb-6">45 minutes</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-serif font-extrabold text-text-dark mb-4" id="singlePrice"></div>
+                            <p class="text-sm text-gray-600 mb-6">Flexible scheduling for occasional learners.</p>
+                            <a href="booking.html" class="inline-block w-full bg-accent-gold text-text-dark font-bold py-3 px-6 rounded-full hover:bg-[#a3875a] transition duration-300 text-sm">Book Single</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 3. 4 Lesson Block -->
+                    <div class="price-card bg-gray-50 p-6 rounded-xl text-center flex flex-col justify-between border-2 border-gray-100">
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold text-text-dark mb-3">4 Lesson Block</h3>
+                            <p class="text-sm text-gray-500 mb-6">Monthly Commitment</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-serif font-extrabold text-accent-gold mb-1" id="block4Price"></div>
+                            <p class="text-xs text-green-700 font-bold mb-4" id="block4Discount"></p>
+                            <p class="text-sm text-gray-600 mb-6">Ideal for consistent weekly practice.</p>
+                            <a href="booking.html" class="inline-block w-full bg-text-dark text-white font-bold py-3 px-6 rounded-full hover:bg-gray-800 transition duration-300 text-sm">Buy Package</a>
+                        </div>
+                    </div>
+
+                    <!-- 4. 10 Lesson Block (Best Value) -->
+                    <div class="price-card bg-gray-50 p-6 rounded-xl text-center flex flex-col justify-between border-2 border-gray-100 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">BEST VALUE</div>
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold text-text-dark mb-3">10 Lesson Block</h3>
+                            <p class="text-sm text-gray-500 mb-6">Term / Quarterly</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-serif font-extrabold text-accent-gold mb-1" id="block10Price"></div>
+                            <p class="text-xs text-green-700 font-bold mb-4" id="block10Discount"></p>
+                            <p class="text-sm text-gray-600 mb-6">For serious, long-term development.</p>
+                            <a href="booking.html" class="inline-block w-full bg-text-dark text-white font-bold py-3 px-6 rounded-full hover:bg-gray-800 transition duration-300 text-sm">Buy Package</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Inquiry -->
+                <div class="text-center mt-16">
+                    <p class="text-xl text-gray-700 mb-4">
+                        Do you require customized scheduling, shorter lessons for young children, or bespoke group instruction?
+                    </p>
+                    <a href="booking.html" class="inline-block bg-accent-gold text-text-dark font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
+                        Custom Package Inquiry
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer - White Background with Dark Text -->
+    <footer class="bg-white border-t border-gray-300 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-dark">
+            <p class="text-text-dark">&copy; 2024 Sayoko. All Rights Reserved.</p>
+            <div class="mt-4 space-x-6">
+                <!-- Social Icons in Footer -->
+                <!-- YouTube Icon -->
+                <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="inline-block text-text-dark hover:text-accent-gold transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+                    </svg>
+                </a>
+                <!-- Instagram Icon -->
+                <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="inline-block text-text-dark hover:text-accent-gold transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
+                    </svg>
+                </a>
+                <a href="booking.html" class="text-text-dark hover:text-accent-gold transition duration-300">Management</a>
+            </div>
+            <p class="text-sm mt-4 text-gray-500">Hosted for Free on GitHub Pages</p>
+        </div>
+    </footer>
+
+    <script>
+        // JS for Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const isOpen = menu.classList.contains('translate-x-0');
+            if (isOpen) {
+                menu.classList.remove('translate-x-0');
+                menu.classList.add('-translate-x-full');
+            } else {
+                menu.classList.add('translate-x-0');
+                menu.classList.remove('-translate-x-full');
+            }
+        }
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+        document.getElementById('close-menu-btn').addEventListener('click', toggleMobileMenu);
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+
+        // Price calculation and injection
+        document.addEventListener('DOMContentLoaded', () => {
+            const currency = '€'; // Define currency symbol here
+
+            // Calculate package prices
+            const block4UnitPrice = calculatePrice(SINGLE_LESSON_PRICE, DISCOUNT_4_BLOCK);
+            const block10UnitPrice = calculatePrice(SINGLE_LESSON_PRICE, DISCOUNT_10_BLOCK);
+
+            // Display prices
+            document.getElementById('trialPrice').textContent = `${currency}${25}`; // Fixed price for 45 min trial
+            document.getElementById('singlePrice').textContent = `${currency}${SINGLE_LESSON_PRICE}`;
+            
+            document.getElementById('block4Price').innerHTML = `${currency}${(block4UnitPrice * 4).toFixed(2)}<span class="text-lg text-gray-500 font-normal"> (${currency}${block4UnitPrice}/lesson)</span>`;
+            document.getElementById('block10Price').innerHTML = `${currency}${(block10UnitPrice * 10).toFixed(2)}<span class="text-lg text-gray-500 font-normal"> (${currency}${block10UnitPrice}/lesson)</span>`;
+
+            // Display discounts
+            document.getElementById('block4Discount').textContent = `Save ${DISCOUNT_4_BLOCK}% compared to single lessons!`;
+            document.getElementById('block10Discount').textContent = `Save ${DISCOUNT_10_BLOCK}% compared to single lessons!`;
+        });
+    </script>
+</body>
+</html>
