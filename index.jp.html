@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classical Pianist - Sayoko</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind with elegant theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background-main': '#111111', // Dark gray for dark sections
+                        'text-dark': '#141414', // Very dark gray/near black text (Used for text on white background)
+                        'text-light': '#ffffff', // White text
+                        'accent-gold': '#b89966', // Muted, sophisticated gold accent
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'], // Elegant serif font for titles and elegance
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        
+        /* Custom styles for elegance and focus */
+        .shadow-classic {
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05); /* Lighter shadow on dark background */
+        }
+        .section-separator {
+            width: 150px;
+            height: 2px;
+            background-color: #444444; /* Dark gray separator (will be overridden on white sections) */
+            margin: 0 auto 2.5rem;
+        }
+        
+        /* MOBILE VIEW ONLY: Full screen hero style with background image */
+        .hero-mobile-bg {
+            height: 85vh; 
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            background-image: url('assets/hero.jpeg'); 
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Darker overlay for white text readability on mobile */
+        }
+
+        /* Enforce smooth scrolling on all scroll events */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-sans antialiased">
+
+    <!-- Header / Navigation - PURE BLACK -->
+    <header class="sticky top-0 z-50 bg-black shadow-2xl">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Title: Gold text, hovers to white -->
+            <a href="index.html" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-white">
+                Sayoko
+            </a>
+            
+            <!-- Main Desktop Links -->
+            <div class="space-x-8 hidden md:flex">
+                <a href="index.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Home</a>
+                <a href="recordings.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Recordings</a>
+                <a href="biography.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Biography</a>
+                <a href="gallery.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Gallery</a>
+                <a href="booking.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Booking</a>
+            </div>
+            
+            <!-- Combined Social Icons + Language Switch (Desktop) -->
+            <div class="flex items-center space-x-6 hidden md:flex">
+                
+                <!-- Language Switch -->
+                <div class="text-sm font-semibold tracking-wider text-gray-400">
+                    <!-- EN link is active/gold, JP is normal text -->
+                    <a href="gallery.html" class="text-accent-gold hover:text-white transition duration-300">EN</a>
+                    <span class="text-gray-600"> | </span>
+                    <a href="index.jp.html" class="hover:text-accent-gold transition duration-300">JP</a>
+                </div>
+                
+                <!-- Social Icons -->
+                <div class="space-x-4 flex">
+                    <!-- YouTube Icon -->
+                    <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+                        </svg>
+                    </a>
+                    <!-- Instagram Icon -->
+                    <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Drawer (Hidden by default) -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background-main transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div class="p-8">
+            <button id="close-menu-btn" class="absolute top-4 right-4 text-white hover:text-accent-gold focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <nav class="flex flex-col space-y-8 mt-12 text-center">
+                <a href="recordings.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Recordings</a>
+                <a href="biography.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Biography</a>
+                <a href="gallery.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Gallery</a>
+                <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
+                
+                <!-- Social Icons in Mobile Menu -->
+                <div class="flex justify-center space-x-8 mt-8">
+                    <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
+                        </svg>
+                    </a>
+                </div>
+            </nav>
+            <!-- Language Switch in Mobile Menu -->
+            <div class="mt-12 text-center text-lg font-semibold tracking-wider text-gray-400">
+                <a href="gallery.html" class="text-accent-gold hover:text-white transition duration-300">EN</a>
+                <span class="text-gray-600"> | </span>
+                <a href="index.jp.html" class="hover:text-accent-gold transition duration-300">JP</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section - SPLIT VIEW on Desktop, FULL IMAGE on Mobile (Text Left, Image Right) -->
+        <section id="hero-section" class="border-b border-gray-800">
+
+            <!-- 1. DESKTOP SPLIT VIEW (Hidden on mobile) -->
+            <div class="hidden md:flex min-h-screen relative">
+                
+                <!-- Left Panel: Text on BLACK Background (50% width) -->
+                <div class="w-1/2 bg-black text-white flex flex-col justify-center px-16 lg:px-24">
+                    <h1 class="text-6xl lg:text-7xl font-serif font-bold leading-tight tracking-tighter">
+                        Sayoko Wada
+                    </h1>
+                    <p class="mt-4 text-2xl lg:text-3xl font-sans font-light max-w-3xl">
+                        Hello, my name is Sayoko. I'm a classical pianist.
+                    </p>
+                    <!-- NEW SCROLL DOWN BUTTON/ICON -->
+                    <a href="#biography-snippet" class="mt-12 text-accent-gold hover:text-white transition duration-300 text-center flex flex-col items-start" id="scroll-down-arrow-desktop">
+                        <span class="text-sm font-sans mb-2 tracking-widest uppercase">Scroll Down</span>
+                        <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Right Panel: Image Background (50% width) -->
+                <div 
+                    class="w-1/2 bg-cover bg-center" 
+                    style="background-image: url('assets/hero.jpeg');">
+                    <!-- Image content handled via CSS background-image -->
+                </div>
+
+            </div>
+            
+            <!-- 2. MOBILE FULL IMAGE VIEW (Hidden on desktop) -->
+            <div class="md:hidden hero-mobile-bg relative">
+                <!-- Dark Overlay for Readability on Mobile -->
+                <div class="hero-overlay"></div> 
+                
+                <div class="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto items-start text-left px-8">
+                    <h1 class="text-5xl sm:text-6xl font-serif font-bold leading-tight text-white tracking-tighter drop-shadow-2xl">
+                        Sayoko
+                    </h1>
+                    <p class="mt-4 text-xl sm:text-2xl text-gray-200 font-sans font-light max-w-3xl drop-shadow-lg">
+                        Hello, my name is Sayoko. I'm a classical pianist.
+                    </p>
+                    <!-- NEW SCROLL DOWN BUTTON/ICON (Mobile) -->
+                    <a href="#biography-snippet" class="mt-12 text-accent-gold hover:text-white transition duration-300 text-center flex flex-col items-start" id="scroll-down-arrow-mobile-cta">
+                        <span class="text-sm font-sans mb-2 tracking-widest uppercase">Scroll Down</span>
+                        <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Biography Snippet and CTAs (Landing Page Content) -->
+        <section id="biography-snippet" class="border-b border-gray-300">
+            
+            <!-- 1. DESKTOP SPLIT VIEW (Image Left, Text Right) - Full Screen Height -->
+            <div class="hidden md:flex min-h-screen">
+                
+                <!-- Left Panel: Image Background (50% width) -->
+                <div 
+                    class="w-1/2 bg-cover bg-center" 
+                    style="background-image: url('assets/portrait.png');">
+                    <!-- Image content handled via CSS background-image -->
+                </div>
+
+                <!-- Right Panel: Text & CTAs on WHITE Background (50% width) -->
+                <div class="w-1/2 bg-white text-text-dark flex flex-col justify-center py-20 px-16 lg:px-24">
+                    <h2 class="text-4xl lg:text-5xl font-serif font-bold text-text-dark mb-4">About me</h2>
+                    <div class="w-24 h-1 bg-accent-gold mb-8 mx-0"></div> <!-- Custom separator -->
+
+                    <p class="text-xl text-text-dark mb-8 max-w-3xl">
+                        こんにちは、大阪出身のピアニスト、和田紗代子です。日本で学士号を取得後、イギリスの英国王立ウェールズ音楽大学にて修士課程を修了しました。その後、さらなる研鑽を積むためフィンランドへ渡り、シベリウス音楽院で二つ目の修士号を取得しました。
+                        現在はフィンランドを拠点に、演奏活動とピアノ指導を行いながら、音楽への情熱をさまざまな形で伝えています。
+                        下のボタンをポチッと押して頂くともう少し詳しく紹介が載っておりますので是非ご覧ください。
+                        インスタグラムやYouTubeのリンクからは演奏の様子やフィンランドの日常生活をご覧頂けます。
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
+                        <!-- CTA 1: Recordings (Colors inverted for white background) -->
+                        <a href="biography.html" class="inline-block bg-accent-gold text-black font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
+                            Learn more
+                        </a>
+                        <!-- CTA 2: Booking (Colors inverted for white background) -->
+                        <a href="booking.html" class="inline-block bg-text-dark text-white font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-gray-800 transition duration-300 uppercase tracking-wider text-sm">
+                            Contact me
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. MOBILE STACKED VIEW (Hidden on desktop) -->
+            <div class="md:hidden py-16 bg-white text-text-dark">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <!-- Image for Mobile -->
+                    <div class="flex justify-center mb-8">
+                        <img 
+                            src="assets/portrait.png" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/300x300/141414/b89966?text=ARTIST+PORTRAIT';"
+                            alt="Artist Profile Photo" 
+                            class="w-full h-80 object-cover border-4 border-accent-gold/50">
+                    </div>
+                    
+                    <h2 class="text-4xl font-serif font-bold text-text-dark mb-6">About me</h2>
+                    <div class="w-24 h-1 bg-accent-gold mb-8 mx-auto"></div> <!-- Custom separator -->
+
+                    <p class="text-xl text-text-dark mb-8 max-w-3xl mx-auto">
+                        こんにちは、大阪出身のピアニスト、和田紗代子です。日本で学士号を取得後、イギリスの英国王立ウェールズ音楽大学にて修士課程を修了しました。その後、さらなる研鑽を積むためフィンランドへ渡り、シベリウス音楽院で二つ目の修士号を取得しました。
+                        現在はフィンランドを拠点に、演奏活動とピアノ指導を行いながら、音楽への情熱をさまざまな形で伝えています。
+                        下のボタンをポチッと押して頂くともう少し詳しく紹介が載っておりますので是非ご覧ください。
+                        インスタグラムやYouTubeのリンクからは演奏の様子やフィンランドの日常生活をご覧頂けます。
+                    </p>
+
+                    <div class="flex flex-col space-y-4 mt-12">
+                        <!-- CTA 1: Recordings -->
+                        <a href="biography.html" class="inline-block bg-accent-gold text-black font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-[#a3875a] transition duration-300 uppercase tracking-wider text-sm">
+                            Learn more about me
+                        </a>
+                        <!-- CTA 2: Booking -->
+                        <a href="booking.html" class="inline-block bg-text-dark text-white font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-gray-800 transition duration-300 uppercase tracking-wider text-sm">
+                            Contact me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- 2. TEACHING SPOTLIGHT - WHITE BG (Image Right, Text Left) -->
+        <section id="teaching-spotlight" class="border-b border-gray-300">
+            <div class="md:flex min-h-screen" >
+                
+                <!-- Left Panel: Text & CTA on WHITE Background (50% width) -->
+                <div class="md:w-1/2 bg-white text-text-dark flex flex-col justify-center py-20 px-8 sm:px-16 lg:px-24">
+                    <h2 class="text-4xl lg:text-5xl font-serif font-bold text-text-dark mb-4">Performance service & event</h2>
+                    <div class="w-24 h-1 bg-accent-gold mb-8 mx-0"></div> <!-- Custom separator -->
+
+                    <p class="text-xl text-text-dark mb-8 max-w-3xl leading-relaxed">
+                        クラシック音楽の演奏を中心に、コンサートホールや教会での本格的なリサイタルから、結婚式や各種セレモニー、大使館レセプション、プライベートな集まりでの生演奏まで、さまざまなイベントに音楽をお届けしています。
+                        それぞれの場にふさわしい雰囲気とご要望に合わせて、丁寧にプログラムを構成いたします。
+                    </p>
+
+                    <p class="text-xl text-text-dark mb-8 max-w-3xl leading-relaxed">
+                        現在はヘルシンキを拠点に活動しております。
+                        日本国内での演奏についても、スケジュール次第で承ることが可能です。
+                        演奏のご依頼や空き状況については、どうぞお気軽にお問い合わせください。
+                    </p>
+
+                    <!-- CTA: Email for Lessons -->
+                    <a href="mailto:345345sayokosayoko@gmail.com?subject=Inquiry%20for%20Pianist%20Sayoko" class="inline-block w-auto bg-text-dark text-white font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-gray-800 transition duration-300 uppercase tracking-wider text-sm">
+                        Email for Details
+                    </a>
+                </div>
+                
+                <!-- Right Panel: Image Background (50% width on Desktop, Full on Mobile) -->
+                <div 
+                    class="md:w-1/2 h-96 md:h-auto bg-cover bg-center" 
+                    style="background-image: url('assets/teaching.jpg')">
+                    <!-- Image content handled via CSS background-image -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. GALLERY SECTION - WHITE BG -->
+        <section id="gallery" class="py-16 md:py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-center mb-4 text-text-dark">Gallery</h2>
+                <div class="section-separator mx-auto bg-gray-300"></div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6">
+                    <!-- Gallery Items (Placeholder Images) -->
+                    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg shadow-lg">
+                        <img src="assets/gallery-1.jpeg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/444444/ffffff?text=1';" alt="Gallery Image 1" class="object-cover w-full h-full hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg shadow-lg">
+                        <img src="assets/gallery-2.jpeg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/444444/ffffff?text=2';" alt="Gallery Image 2" class="object-cover w-full h-full hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg shadow-lg">
+                        <img src="assets/gallery-3.jpeg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/444444/ffffff?text=3';" alt="Gallery Image 3" class="object-cover w-full h-full hover:scale-105 transition duration-500">
+                    </div>
+                </div>
+                <div class="flex flex-col space-y-4 mt-12">
+                    <a href="gallery.html" class="inline-block bg-text-dark text-white font-bold py-3 px-10 rounded-full shadow-lg hover:shadow-xl hover:bg-gray-800 transition duration-300 uppercase tracking-wider text-sm">
+                        See more images
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer - Now White Background with Dark Text -->
+    <footer class="bg-white border-t border-gray-300 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-dark">
+            <p class="text-text-dark">&copy; 2024 Sayoko. All Rights Reserved.</p>
+            <div class="mt-4 space-x-6">
+                <!-- Social Icons -->
+                <a href="https://www.youtube.com/@wsayoko9341" target="_blank" class="text-text-dark hover:text-accent-gold transition duration-300">YouTube</a>
+                <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" class="text-text-dark hover:text-accent-gold transition duration-300">Instagram</a>
+                <a href="booking.html" class="text-text-dark hover:text-accent-gold transition duration-300">Management</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Navigation and Menu Logic ---
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const isOpen = menu.classList.contains('translate-x-0');
+            if (isOpen) {
+                menu.classList.remove('translate-x-0');
+                menu.classList.add('-translate-x-full');
+            } else {
+                menu.classList.add('translate-x-0');
+                menu.classList.remove('-translate-x-full');
+            }
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+        document.getElementById('close-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // Add event listeners to mobile menu links to close the menu on click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+        
+        // --- Full Page Scroll Snap Logic ---
+
+        const heroSection = document.getElementById('hero-section');
+        const spotlightSection = document.getElementById('biography-snippet');
+
+        // --- Simple Form Submission Handler ---
+        document.querySelector('form')?.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // We are replacing the alert with a custom message box as per the rules
+            const messageBox = document.createElement('div');
+            messageBox.innerHTML = '<div style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); padding:20px; background:#fff; border:2px solid #b89966; box-shadow:0 10px 30px rgba(0,0,0,0.2); z-index:9999; border-radius:8px; text-align:center;"><p style="color:#2c2c2c; font-size:1.1rem;">Thank you for your inquiry!</p><p style="color:#777; font-size:0.8rem; margin-top:5px;">(Note: This form needs an external service to send emails.)</p><button onclick="this.parentNode.remove()" style="margin-top:15px; background:#b89966; color:#fff; padding:8px 15px; border:none; border-radius:4px; cursor:pointer;">Close</button></div>';
+            document.body.appendChild(messageBox);
+        });
+    </script>
+</body>
+</html>
