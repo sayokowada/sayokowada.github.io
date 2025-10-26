@@ -61,32 +61,47 @@
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- Title: Gold text, hovers to white -->
             <a href="index.html" class="text-3xl font-serif text-accent-gold font-bold transition duration-300 hover:text-white">
-                Sayoko Wada
+                Sayoko
             </a>
+            
+            <!-- Main Desktop Links -->
             <div class="space-x-8 hidden md:flex">
-                <!-- Links now point to separate files -->
-                <a href="index.html" class="text-3xl text-white hover:text-accent-gold transition duration-300">Home</a>
-                <a href="gallery.html" class="text-3xl text-white hover:text-accent-gold transition duration-300">Gallery</a>
-                <a href="recordings.html" class="text-3xl text-white hover:text-accent-gold transition duration-300">Recordings</a>
-                <a href="biography.html" class="text-3xl text-white hover:text-accent-gold transition duration-300">Biography</a>
-                <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300">Booking</a>
+                <a href="index.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Home</a>
+                <a href="recordings.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Recordings</a>
+                <a href="biography.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Biography</a>
+                <a href="gallery.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Gallery</a>
+                <a href="booking.html" class="text-lg text-gray-200 hover:text-accent-gold transition duration-300">Booking</a>
             </div>
-            <!-- Social Icons on Desktop -->
-            <div class="space-x-4 hidden md:flex">
-                <!-- YouTube Icon -->
-                <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-gray-200 hover:text-accent-gold transition duration-300">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
-                    </svg>
-                </a>
-                <!-- Instagram Icon -->
-                <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-gray-200 hover:text-accent-gold transition duration-300">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
-                    </svg>
-                </a>
+            
+            <!-- Combined Social Icons + Language Switch (Desktop) -->
+            <div class="flex items-center space-x-6 hidden md:flex">
+                
+                <!-- Language Switch -->
+                <div class="text-sm font-semibold tracking-wider text-gray-400">
+                    <!-- EN link is active/gold, JP is normal text -->
+                    <a href="gallery.html" class="text-accent-gold hover:text-white transition duration-300">EN</a>
+                    <span class="text-gray-600"> | </span>
+                    <a href="gallery.jp.html" class="hover:text-accent-gold transition duration-300">JP</a>
+                </div>
+                
+                <!-- Social Icons -->
+                <div class="space-x-4 flex">
+                    <!-- YouTube Icon -->
+                    <a href="https://www.youtube.com/@YOURCHANNELNAME" target="_blank" aria-label="YouTube Channel" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+                        </svg>
+                    </a>
+                    <!-- Instagram Icon -->
+                    <a href="https://www.instagram.com/YOURINSTAGRAMHANDLE" target="_blank" aria-label="Instagram Profile" class="text-gray-200 hover:text-accent-gold transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
-            <!-- Mobile Menu Button: Light gray icon, hovers to gold -->
+            
+            <!-- Mobile Menu Button -->
             <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-accent-gold focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
@@ -100,28 +115,35 @@
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <nav class="flex flex-col space-y-8 mt-12 text-center">
-                <a href="index.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Home</a>
-                <a href="gallery.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Gallery</a>
                 <a href="recordings.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Recordings</a>
                 <a href="biography.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Biography</a>
+                <a href="gallery.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Gallery</a>
                 <a href="booking.html" class="text-3xl text-white hover:text-accent-gold transition duration-300" onclick="toggleMobileMenu()">Booking</a>
                 
                 <!-- Social Icons in Mobile Menu -->
                 <div class="flex justify-center space-x-8 mt-8">
-                    <a href="https://www.youtube.com/@wsayoko9341" target="_blank" aria-label="YouTube Channel" class="text-gray-200 hover:text-accent-gold transition duration-300">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="https://www.youtube.com/@YOURCHANNELNAME" target="_blank" aria-label="YouTube Channel" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.498 6.186a3.024 3.024 0 00-2.124-2.126C19.7 4 12 4 12 4s-7.7 0-9.375.06A3.024 3.024 0 00.5 6.186C.44 7.854.44 12 .44 12s0 4.146.06 5.814a3.024 3.024 0 002.125 2.126C4.3 20 12 20 12 20s7.7 0 9.375-.06a3.024 3.024 0 002.124-2.126C23.56 16.146 23.56 12 23.56 12s0-4.146-.062-5.814zM9.545 15.5V8.5l6.5 3.5-6.5 3.5z"/>
                         </svg>
                     </a>
-                    <a href="https://www.instagram.com/sayoko.pianist/" target="_blank" aria-label="Instagram Profile" class="text-gray-200 hover:text-accent-gold transition duration-300">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="https://www.instagram.com/YOURINSTAGRAMHANDLE" target="_blank" aria-label="Instagram Profile" class="text-white hover:text-accent-gold transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zM12 16a4 4 0 100-8 4 4 0 000 8zm4.5-8a.5.5 0 10-1 0 .5.5 0 001 0z"/>
                         </svg>
                     </a>
                 </div>
             </nav>
+            <!-- Language Switch in Mobile Menu -->
+            <div class="mt-12 text-center text-lg font-semibold tracking-wider text-gray-400">
+                <a href="gallery.html" class="text-accent-gold hover:text-white transition duration-300">EN</a>
+                <span class="text-gray-600"> | </span>
+                <a href="gallery.jp.html" class="hover:text-accent-gold transition duration-300">JP</a>
+            </div>
         </div>
     </div>
+
+
 
     <main>
         <!-- NEW: Recordings Hero Image (Full Width, Half Height) -->
